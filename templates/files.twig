@@ -1,0 +1,13 @@
+{% include 'sidebar.twig' with {'params':params} %}
+<meta charset="UTF-8">
+<meta name="description" content="Bienvenue sur GABHOST site d'hébergement de serveurs de jeux innovant: Minecraft,Rust,Terraria,Factorio,Ark,7 days to die,Mumble">
+<meta name="keywords" content="Minecraft,host,Rust,Hosting,Gaming,Terraria,Factorio,Ark,7 days to die">
+<div class="w3-container w3-center g-panel">
+{% include 'header.twig' with {'params':params} %}
+    <div class="w3-panel panel-black">
+      {% for fic in params.files %}
+        <a href="./fichiers/{{fic}}">{{fic}}</a><br>
+      {% endfor %}
+     </div>
+  </div>
+{% include 'footer.twig' %}

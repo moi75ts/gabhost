@@ -1,0 +1,254 @@
+#b1{
+    height: 216px;
+    width: 384px;
+    background-image: url("../img/minecraft-card.webp");
+    color:rgb(255, 255, 255);
+    font-size: 25px;
+}
+#b2{
+    height: 216px;
+    width: 384px;
+    background-image: url("../img/terraria-card.webp");
+    color:rgb(255, 255, 255);
+    font-size: 25px;
+}
+#b3{
+    height: 216px;
+    width: 384px;
+    background-image: url("../img/Rust-card.webp");
+    color:rgb(255, 255, 255);
+    font-size: 25px;
+}
+#b4{
+    height: 216px;
+    width: 384px;
+    background-image: url("../img/7daystodie-card.webp");
+    color:rgb(255, 255, 255);
+    font-size: 25px;
+}
+#b5{
+    height: 216px;
+    width: 384px;
+    background-image: url("../img/mumble-card.webp");
+    color:rgb(255, 255, 255);
+    font-size: 25px;
+}
+#b6{
+    height: 216px;
+    width: 384px;
+    background-image: url("../img/factorio-card.webp");
+    color:rgb(255, 255, 255);
+    font-size: 25px;
+}
+#b7{
+    height: 216px;
+    width: 384px;
+    background-image: url("../img/ark-card.webp");
+    color:rgb(255, 255, 255);
+    font-size: 25px;
+}
+#bm1{
+    height: 216px;
+    width: 384px;
+    background-image: url("../img/minecraft-card.webp");
+    color:rgb(255, 255, 255);
+    font-size: 25px;
+}
+#bm2{
+    height: 216px;
+    width: 384px;
+    background-image: url("../img/spigot-card.webp");
+    color:rgb(255, 255, 255);
+    font-size: 25px;
+}
+#bm3{
+    height: 216px;
+    width: 384px;
+    background-image: url("../img/paper_spigot-card.webp");
+    color:rgb(255, 255, 255);
+    font-size: 25px;
+}
+#bm4{
+    height: 216px;
+    width: 384px;
+    background-image: url("../img/template-card.webp");
+    color:rgb(255, 255, 255);
+    font-size: 25px;
+}
+#bm5{
+    height: 216px;
+    width: 384px;
+    background-image: url("../img/forge-card.webp");
+    color:rgb(255, 255, 255);
+    font-size: 25px;
+}
+#bm6{
+    height: 216px;
+    width: 384px;
+    background-image: url("../img/custom_jar-card.webp");
+    color:rgb(255, 255, 255);
+    font-size: 25px;
+}
+#bt1{
+    height: 216px;
+    width: 384px;
+    background-image: url("../img/terraria-card.webp");
+    color:rgb(255, 255, 255);
+    font-size: 25px;
+}
+#bt2{
+    height: 216px;
+    width: 384px;
+    background-image: url("../img/terraria-card.webp");
+    color:rgb(255, 255, 255);
+    font-size: 25px;
+}
+#bt3{
+    height: 216px;
+    width: 384px;
+    background-image: url("../img/terraria-card.webp");
+    color:rgb(255, 255, 255);
+    font-size: 25px;
+}
+#btm1{
+    height: 216px;
+    width: 384px;
+    background-image: url("../img/taupe-gun-card.webp");
+    color:rgb(255, 255, 255);
+    font-size: 25px;
+}
+#btm2{
+    height: 216px;
+    width: 384px;
+    background-image: url("../img/lg-uhc-card.webp");
+    color:rgb(255, 255, 255);
+    font-size: 25px;
+}
+@media screen and (max-width:1024px){
+    #b1{
+        height: 174px;
+        width: 310px;
+        background-image: url("../img/minecraft-card-small.webp");
+        color:rgb(255, 255, 255);
+        font-size: 25px;
+    }
+    #b2{
+        height: 174px;
+        width: 310px;
+        background-image: url("../img/terraria-card-small.webp");
+        color:rgb(255, 255, 255);
+        font-size: 25px;
+    }
+    #b3{
+        height: 174px;
+        width: 310px;
+        background-image: url("../img/Rust-card-small.webp");
+        color:rgb(255, 255, 255);
+        font-size: 25px;
+    }
+    #b4{
+        height: 174px;
+        width: 310px;
+        background-image: url("../img/7daystodie-card-small.webp");
+        color:rgb(255, 255, 255);
+        font-size: 25px;
+    }
+    #b5{
+        height: 174px;
+        width: 310px;
+        background-image: url("../img/mumble-card-small.webp");
+        color:rgb(255, 255, 255);
+        font-size: 25px;
+    }
+    #b6{
+        height: 174px;
+        width: 310px;
+        background-image: url("../img/factorio-card-small.webp");
+        color:rgb(255, 255, 255);
+        font-size: 25px;
+    }
+    #b7{
+        height: 174px;
+        width: 310px;
+        background-image: url("../img/ark-card-small.webp");
+        color:rgb(255, 255, 255);
+        font-size: 25px;
+    }
+    #bm1{
+        height: 174px;
+        width: 310px;
+        background-image: url("../img/minecraft-card-small.webp");
+        color:rgb(255, 255, 255);
+        font-size: 25px;
+    }
+    #bm2{
+        height: 174px;
+        width: 310px;
+        background-image: url("../img/spigot-card-small.webp");
+        color:rgb(255, 255, 255);
+        font-size: 25px;
+    }
+    #bm3{
+        height: 174px;
+        width: 310px;
+        background-image: url("../img/paper_spigot-card-small.webp");
+        color:rgb(255, 255, 255);
+        font-size: 25px;
+    }
+    #bm4{
+        height: 174px;
+        width: 310px;
+        background-image: url("../img/template-card-small.webp");
+        color:rgb(255, 255, 255);
+        font-size: 25px;
+    }
+    #bm5{
+        height: 174px;
+        width: 310px;
+        background-image: url("../img/forge-card-small.webp");
+        color:rgb(255, 255, 255);
+        font-size: 25px;
+    }
+    #bm6{
+        height: 174px;
+        width: 310px;
+        background-image: url("../img/custom_jar-card-smoll.webp");
+        color:rgb(255, 255, 255);
+        font-size: 25px;
+    }
+    #bt1{
+        height: 174px;
+        width: 310px;
+        background-image: url("../img/terraria-card-small.webp");
+        color:rgb(255, 255, 255);
+        font-size: 25px;
+    }
+    #bt2{
+        height: 174px;
+        width: 310px;
+        background-image: url("../img/terraria-card-small.webp");
+        color:rgb(255, 255, 255);
+        font-size: 25px;
+    }
+    #bt3{
+        height: 174px;
+        width: 310px;
+        background-image: url("../img/terraria-card-small.webp");
+        color:rgb(255, 255, 255);
+        font-size: 25px;
+    }
+    #btm1{
+        height: 174px;
+        width: 310px;
+        background-image: url("../img/taupe-gun-card-small.webp");
+        color:rgb(255, 255, 255);
+        font-size: 25px;
+    }
+    #btm2{
+        height: 174px;
+        width: 310px;
+        background-image: url("../img/lg-uhc-card-small.webp");
+        color:rgb(255, 255, 255);
+        font-size: 25px;
+    }
+}

@@ -1,0 +1,51 @@
+{% include 'new_header.twig' with {'params':params} %}
+<body>
+  <header class="gab-text">
+  <div class="w3-container gab-blue">
+    <h1>GABHOST</h1><br>
+    <div class="w3-bar">
+      <button class="w3-bar-item w3-button w3-xlarge w3-ripple" onclick="OpenTab(event,'ACCUEIL')"><span id="ACCUEIL_SPAN" class="tablink gab-selected">ACCUEIL</span></button>
+      <a href="https://panel.gabhost.tk"><button class="w3-bar-item w3-button w3-xlarge w3-ripple">PANEL</button></a>
+      {% if params.session['conn'] == TRUE %}
+        <button class="w3-bar-item w3-button w3-xlarge w3-ripple" onclick="OpenTab(event,'MESSERVEURS')"><span id="MESSERVEURS_SPAN" class="tablink">MES SERVEURS</span></button>
+        <button class="w3-bar-item w3-button w3-xlarge w3-ripple " onclick="OpenTab(event,'MESJETONS')"><span id="MESJETONS_SPAN" class="tablink">MES JETONS</span></button>
+        <a href="/scripts/deconnexion.php"><button class="w3-bar-item w3-button tablink w3-xlarge w3-ripple">DECONNEXION</button></a>
+      {% else %}
+        <button class="w3-bar-item w3-button w3-xlarge w3-ripple" onclick="OpenTab(event,'Connexion')"><span id="Connexion_SPAN" class="tablink">CONNEXION</span></button>
+        <button class="w3-bar-item w3-button w3-xlarge w3-ripple" onclick="OpenTab(event,'Inscription')"><span id="Inscription_SPAN" class="tablink">INSCRIPTION</span></button>
+      {% endif %}
+    </div>
+  </div>
+  </header>
+  <div id="content">
+    <div id="ACCUEIL" class="w3-container w3-border gab-tab gab-selected">
+      <h2>ACCUEIL</h2>
+      <p>London is the capital city of England.</p>
+    </div>
+
+    <div id="MESSERVEURS" class="w3-container w3-border gab-tab" style="display:none">
+      <h2>MES SERVEURS</h2>
+      <p>London is the capital city of England.</p>
+    </div>
+
+    <div id="MESJETONS" class="w3-container w3-border gab-tab" style="display:none">
+      <h2>MES JETONS</h2>
+      <p>Paris is the capital of France.</p> 
+    </div>
+
+    <div id="Connexion" class="w3-container gab-tab" style="display:none">
+      {% include 'connexion2.twig' with {'params':params} %}
+    </div>
+
+    <div id="Inscription" class="w3-container w3-border gab-tab" style="display:none">
+      <h2>INSCRIPTION</h2>
+      <p>Tokyo is the capital of Japan.</p>
+    </div>
+  </div>
+  <footer>
+    <div class="w3-container gab-footer gab-text">
+      <h5>Footer</h5>
+      <p>Footer information goes here</p>
+    </div>
+  </footer>
+</body>

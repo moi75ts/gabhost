@@ -1,0 +1,54 @@
+{% include 'sidebar.twig' with {'params':params} %}
+<meta name="description" content="Connexion Gabhost">
+<script type="text/javascript" src="../scripts/jquery.js"></script>
+<style>
+body{
+    background-image: url("../img/minecraft1.webp"),url("../img/rust1.webp"),url("../img/7daystodie1.webp"),url("../img/terraria1.webp");
+    background-size:cover;
+    animation: slideBg 14s linear infinite 0s;
+    animation-timing-function: ease-in-out;
+}
+@keyframes slideBg {
+  0%{
+      background-image: url("../img/minecraft1.webp");
+  }
+  12.5%{
+      background-image: url("../img/minecraft1.webp");
+  }
+  25%{
+      background-image: url("../img/rust1.webp");
+  }
+  37.5%{
+      background-image: url("../img/rust1.webp");
+  }
+  50%{
+      background-image: url("../img/7daystodie1.webp");
+  }
+  62.5{
+      background-image: url("../img/7daystodie1.webp");
+  }
+  75%{
+      background-image: url("../img/terraria1.webp");
+  }
+  87.5%{
+      background-image: url("../img/terraria1.webp");
+  }
+}
+</style>
+<div class="blanc-05 w3-display-middle text-align maboite w3-display-container firefox-display-center">
+    <form action="scripts/connexion.php" method="POST" id="form">
+        <h2 class="verdana texte-noir">Connexion GABHOST</h2>
+        <label class="w3-xlarge" for="login">
+		    <img src="svg/person.svg" class="svg-icon">
+		</label>
+		<input  class="w3-xlarge" type="text" name="login" placeholder="PSEUDO/EMAIL" id="username" required><br><br>
+		<label class="w3-xlarge" for="password">
+		    <img src="svg/lock.svg" class="svg-icon">
+		</label>
+		<input class="w3-xlarge" type="password" name="password" placeholder="MOT DE PASSE" id="password" required>
+        <img onclick="showpasswd()" id="passwdeye" src="svg/eye.svg" class="svg-icon" style="margin-left:-30px;position:absolute;margin-top:12px;"><br><br>
+        <input type="hidden" name="csrf" value="{{params.csrf}}">
+        <input class="w3-button w3-green w3-xlarge" type="submit" value="Connexion" style="width:100%">
+        <a href="https://panel.gabhost.tk/auth/password"><p class="texte-noir">Mot de passe oublié?</a></a>
+    </form>
+</div>

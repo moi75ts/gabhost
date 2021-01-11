@@ -1,0 +1,119 @@
+body {
+    background: #000000;
+    position: relative;
+    font-family: Verdana, Geneva, Tahoma, sans-serif!important;
+}
+.bg_black{
+    background: rgb(31,41,51,0.99);
+    box-shadow: 0 0 20px 0 rgba(255, 255, 255, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.panel-black{
+    background: rgba(31,41,51,0.99);
+    box-shadow: 0 0 20px 0 rgba(255, 255, 255, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.texte-blanc{
+    color:white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif!important;
+}
+.texte-blanc{
+    color:white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif!important;
+}
+.full-height {
+    height: 100%;
+}
+.full-width {
+    width: 100%;
+}
+.auto-height{
+    height: auto;
+}
+.overflow-hidden{
+    overflow: hidden;
+}
+.blanc-05{
+    background-color: rgba(255,255,255, 0.9)!important;
+}
+footer{
+    bottom: 0;
+    width: 100%;
+}
+.sidebar_btn{
+    margin-bottom: 1vh;
+}
+.firefox-display-center {
+    transform: translate(-50%,25%);
+}
+@media screen and (max-width: 1128px){
+    #mySidebar{
+        display: none;
+    }
+    #content{
+        margin-left: 0%;
+    }
+}
+@media screen and (min-width: 1128px){
+    #mySidebar{
+        display: block;
+        width: 15%;
+    }
+    .g-panel{
+        padding-left: 4em;
+        padding-right: 4em;
+    }
+    #content{
+        margin-left: 15%!important;
+    }
+}
+@media screen and (max-width: 992px){
+    .g-medium{
+        display: none;
+    }
+    .g-medium-show{
+        display: block;
+    }
+}
+@media screen and (min-width: 992px){
+    .g-medium-show{
+        display: none;
+    }
+}
+.verdana{
+    font-family: Verdana, Geneva, Tahoma, sans-serif!important;
+}
+.svg-icon{
+    width: 1.2em;
+    vertical-align: sub;
+}
+.svg-icon-big{
+    width: 4em;
+    vertical-align: sub;
+}
+.text-align{
+    text-align: center;
+}
+.maboite{
+    padding: 4em;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.svg-blanc{
+    filter: invert(100%) sepia(100%) saturate(100%) hue-rotate(86deg) brightness(118%) contrast(119%);
+}
+.disabled{
+    filter: grayscale(100%);
+}
+.texte-noir{
+    color:black;
+}
+.texte-rouge{
+    color:red;
+}
+.content{
+    min-height: 100%;
+}
+.g-card{
+    border-radius: 10px;
+    margin-bottom:5px;
+    box-sizing: border-box;
+    padding:1.5vh;
+}

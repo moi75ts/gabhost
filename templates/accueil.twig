@@ -1,0 +1,27 @@
+{% include 'sidebar.twig' with {'params':params} %}
+<meta charset="UTF-8">
+<meta name="description" content="Bienvenue sur GABHOST site d'hébergement de serveurs de jeux innovant: Minecraft,Rust,Terraria,Factorio,Ark,7 days to die,Mumble">
+<meta name="keywords" content="Minecraft,host,Rust,Hosting,Gaming,Terraria,Factorio,Ark 7 days to die,hoster,hebergeur,pas cher,serveur,server,srv,serveurs,hosting,host,location,location serveur">
+  <div class="w3-container w3-center g-panel">
+    {% include 'header.twig' with {'params':params} %}
+    <div class="w3-panel panel-black" style="border-top:solid 3px;">
+      <p>liste des machines Gabhost</p>
+      {% for node in params.nodes["data"] %}
+        <hr>{{node["attributes"]["name"]}} | {{node["attributes"]["description"]}}
+      {% endfor %}
+      </p>
+    </div>
+    <div class="w3-mobile">
+      <div class="panel-black" style="padding:1.5vh;margin:0.5vh;border-top:solid 3px;">
+        {% include 'tropfort.twig' with {'params':params} %}
+      </div>
+    </div>
+    <br>
+    <div class="w3-mobile">
+      <div class="panel-black" style="padding:1.5vh;margin:0.5vh;border-top:solid 3px;">
+        {% include 'nos-offres.twig' with {'params':params} %}
+      </div>
+    </div>
+  </div>
+  <br>
+{% include 'footer.twig' %}

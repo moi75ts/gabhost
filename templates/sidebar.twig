@@ -1,0 +1,39 @@
+<!doctype html>
+<head>
+    <title>{{params.title}}</title>
+    <link href="./style/w3.css" rel="stylesheet">
+    <link href="./style/theme.css?v={{ random() }}" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="../scripts/particles.js?v={{random()}}"></script>
+    <script type="text/javascript" src="../scripts/app.js?v={{random()}}"></script>
+    <script type="text/javascript" src="../scripts/custom.js?v={{random()}}"></script>
+</head>
+<body class="texte-blanc verdana">
+    <div class="w3-sidebar w3-bar-block w3-card bg_black" id="mySidebar">
+        <h2 style="text-align:center;">GABHOST</h2><hr>
+        {% if params.session['conn'] == TRUE %}
+            <h3 style="text-align:center;"><span style="border-bottom: 2px solid grey; padding-bottom:3px;">{{params.session['pseudo']}}</span></h3><hr>
+        {% else %}{% endif %}
+        <a href="?p=Accueil"><button class="sidebar_btn w3-button w3-medium w3-text-white w3-hover-black full-width"><img src="svg/house.svg" class="svg-icon svg-blanc"> ACCUEIL</button></a>
+        <a href="https://panel.gabhost.tk"><button class="sidebar_btn w3-button w3-medium    w3-hover-black full-width"><img src="svg/server.svg" class="svg-icon svg-blanc"> PANEL</button></a>
+        {#btn deco les fct si co ici#}
+        {% if params.session['conn'] == TRUE %}
+            <a href="https://panel.gabhost.tk/account"><button class="sidebar_btn w3-button w3-medium    w3-hover-black full-width"><img src="svg/file-person.svg" class="svg-icon svg-blanc"> MON COMPTE</button></a> 
+            <a href="?p=Mes-serveurs"><button class="sidebar_btn w3-button w3-medium    w3-hover-black full-width"><img src="svg/gear.svg" class="svg-icon svg-blanc"> MES SERVEURS</button></a> 
+            <a href="?p=Mes-tokens"><button class="sidebar_btn w3-button w3-medium  w3-hover-black full-width" disabled><img src="svg/bag.svg" class="svg-icon svg-blanc"> mes tokens</button></a> 
+            <a href="?p=Creation-serveur"><button class="sidebar_btn w3-button w3-medium    w3-hover-black full-width"><img src="svg/cloud-plus.svg" class="svg-icon svg-blanc"> Ajout serveur</button></a> 
+        {% else %}{% endif %}
+        {#fin btn deco#}
+         <a href="{% if params.session['conn'] == TRUE %}/scripts/deconnexion.php{% else %}?p=Connexion{% endif %}">{% if params.session['conn'] == TRUE %}<button class="sidebar_btn w3-button w3-medium    w3-hover-black full-width"><img src="svg/power.svg" class="svg-icon svg-blanc"> DECONEXION{% else %}<button class="sidebar_btn w3-button w3-medium    w3-hover-black full-width"><img src="svg/shield-lock.svg" class="svg-icon svg-blanc"> CONNEXION{% endif %}</button></a>
+         {% if params.session['conn'] == TRUE %}{% else %}<a href="?p=Inscription"><button class="sidebar_btn w3-button w3-medium    w3-hover-black full-width"><img src="svg/patch-plus.svg" class="svg-icon svg-blanc"> INSCRIPTION</button></a>{% endif %}
+         </p>
+        </div>
+        <img class="w3-display-middle" src="svg/loading.svg" id="loading" style="display: none;position: fixed;top: 50%; z-index: 7;">
+        <div id="content">
+            <div id="particles-js" class="g-medium" style="position: fixed;
+                left: 0;
+                top: 0;
+                width:100%;
+                min-height: 100%;
+                z-index: -1; ">
+            </div>

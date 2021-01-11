@@ -1,0 +1,15 @@
+body {
+    background: #000000;
+    position: relative;
+    font-family: Verdana, Geneva, Tahoma, sans-serif!important;
+}
+.bg_black{
+    background: rgb(31,41,51)
+}
+.panel-black{
+    background: rgba(31,41,51,0.95);
+}
+.texte-blanc{
+    color:white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif!important;
+}

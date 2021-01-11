@@ -1,0 +1,14 @@
+{
+    "name": "gabhost/host",
+    "description": "homemade gabhost page",
+    "authors": [
+        {
+            "name": "Gabriel PIASTA",
+            "email": "piasta.gabriel@gmail.com"
+        }
+    ],
+    "require": {
+        "twig/twig": "~3.0",
+        "vlucas/phpdotenv": "^5.2"
+    }
+}

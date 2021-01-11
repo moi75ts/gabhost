@@ -1,0 +1,58 @@
+{
+    "jeux": {
+      "minecraft": {
+        "name": "Minecraft",
+        "types": [
+          "Minecraft Vanilla",
+          "Spigot",
+          "Paper Spigot",
+          "Forge",
+          "Jar custom"
+        ]
+      },
+      "template": {
+        "name": "Template",
+        "types": [
+          "Taupe gun",
+          "LG UHC"
+        ]
+      },
+      "terraria": {
+        "name": "Terraria",
+        "types": [
+          "Terraria Vanilla",
+          "Terraria TModLoader"
+        ]
+      },
+      "rust": {
+        "name": "Rust",
+        "types": [
+          "Rust"
+        ]
+      },
+      "factorio": {
+        "name": "factorio",
+        "types": [
+          "Factorio"
+        ]
+      },
+      "mumble": {
+        "name": "Mumble",
+        "types": [
+          "Mumble"
+        ]
+      },
+      "7 days to die": {
+        "name": "7 days to die",
+        "types": [
+          "7 days to die"
+        ]
+      },
+      "Ark": {
+        "name": "Ark",
+        "types": [
+          "Ark"
+        ]
+      }
+    }
+  }

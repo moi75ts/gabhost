@@ -1,0 +1,40 @@
+{
+    "jeux": {
+      "minecraft": {
+        "name": "Minecraft",
+        "types": [
+          "Minecraft Vanilla",
+          "Spigot",
+          "Paper Spigot",
+          "Forge",
+          "Jar custom"
+        ]
+      },
+      "template": {
+        "name": "Template",
+        "types": [
+          "Taupe gun",
+          "LG UHC"
+        ]
+      },
+      "terraria": {
+        "name": "Terraria",
+        "types": [
+          "Terraria Vanilla",
+          "Terraria TModLoader"
+        ]
+      },
+      "factorio": {
+        "name": "factorio",
+        "types": [
+          "Factorio"
+        ]
+      },
+      "mumble": {
+        "name": "Mumble",
+        "types": [
+          "Mumble"
+        ]
+      }
+    }
+  }

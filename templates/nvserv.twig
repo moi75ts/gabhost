@@ -1,0 +1,414 @@
+{% include 'sidebar.twig' with {'params':params} %}
+<script type="text/javascript" src="../scripts/jquery.js"></script>
+<script type="text/javascript" src="../scripts/hide.js?v={{random()}}"></script>
+<link href="./style/theme_btn.css?v={{random()}}" rel="stylesheet">
+<div class="texte-blanc panel-black">
+  <div class="w3-container w3-center">
+    <h2>vous avez {{params.user_data[0].token_e}} jeton(s) Essentiel, {{params.user_data[0].token_m}} jeton(s) Medium et {{params.user_data[0].token_g}} jeton(s) GAMING</h2>
+    <input type="button" id="b1" value=""></a>
+    <input type="button" id="b2" value=""></a>
+    <input type="button" id="b3" value=""></a>
+    <input type="button" id="b4" value=""></a>
+    <input type="button" id="b5" value=""></a>
+    <input type="button" id="b6" value=""></a>
+    <input type="button" id="b7" value=""></a>
+  </div><br><br><br>
+  <div class="w3-container w3-center" id="minecraft">
+    <h2>Serveur MINECRAFT</h2>
+    <input type="button" id="bm1" value=""></a>
+    <input type="button" id="bm2" value=""></a>
+    <input type="button" id="bm3" value=""></a>
+    <input type="button" id="bm4" value=""></a>
+    <input type="button" id="bm5" value=""></a>
+    <input type="button" id="bm6" value=""></a>
+    <br><br><br>
+    <div class="w3-container w3-center" id="mvan">
+      <form onsubmit="return loading()" action="/scripts/creat.php" method="POST">
+        <h1>Minecraft Vanilla</h1>
+        <label for="nom">nom du serveur</label><br>
+        <input  class="w3-xlarge" type="text" name="nom" placeholder="Nom du serveur" required><br><br>
+        <label for="desc">Description du serveur</label><br>
+        <input  class="w3-xlarge" type="text" name="desc" placeholder="Description du serveur" required><br><br>
+        <label for="version">version</label>
+        <select name="version" id="version" class="w3-xlarge">
+          {% for serveur in params.versions %}
+                 <option value="{{serveur[0]}}">{{serveur[0]}}</option>
+          {% endfor %}
+        </select>
+        <br>
+        {% include 'form-minecraft.twig'%}
+                        <br>
+      <label for="mois">Nombre de mois</label>
+      <input type="number" min="1" max="12" name="mois" value="1"><br><br>
+        <input type="hidden" name="pack_id" value="1">
+        <input type="hidden" name="egg_id" value="25">
+        <input name="gamme" class="w3-button w3-medium w3-text-white w3-border-black w3-round-large w3-border w3-hover-black w3-teal w3-Xlarge" type="submit" value="créer mon serveur Essentiel" {% if params.user_data[0].token_e == 0 %}disabled{% endif %}>
+        <input name="gamme" class="w3-button w3-medium w3-text-white w3-border-black w3-round-large w3-border w3-hover-black w3-teal w3-Xlarge" type="submit" value="créer mon serveur Medium" {% if params.user_data[0].token_m == 0 %}disabled{% endif %}>
+        <input name="gamme" class="w3-button w3-medium w3-text-white w3-border-black w3-round-large w3-border w3-hover-black w3-teal w3-Xlarge" type="submit" value="créer mon serveur Gaming" {% if params.user_data[0].token_g == 0 %}disabled{% endif %}>
+      </form>
+    </div>
+    <div class="w3-container w3-center" id="mspi">
+      <form onsubmit="return loading()" action="/scripts/creat.php" method="POST">
+        <h1>Minecraft SPIGOT</h1>
+        <label for="nom">nom du serveur</label><br>      
+        <input  class="w3-xlarge" type="text" name="nom" placeholder="Nom du serveur" required><br><br>
+        <label for="desc">Description du serveur</label><br>
+        <input  class="w3-xlarge" type="text" name="desc" placeholder="Description du serveur" required><br><br>
+        <label for="version">version (latest) = dernière version</label><br>
+        <input  class="w3-xlarge" type="text" name="version" placeholder="Version de spigot" required><br><br>
+        <br>
+        <label for="slots">Choisissez le nombre de slots</label><br>
+        {% include 'form-minecraft.twig'%}
+                        <br>
+      <label for="mois">Nombre de mois</label>
+      <input type="number" min="1" max="12" name="mois" value="1"><br><br>
+        <input type="hidden" name="pack_id" value="1">
+        <input type="hidden" name="egg_id" value="16">
+        <input name="gamme" class="w3-button w3-medium w3-text-white w3-border-black w3-round-large w3-border w3-hover-black w3-teal w3-Xlarge" type="submit" value="créer mon serveur Essentiel" {% if params.user_data[0].token_e == 0 %}disabled{% endif %}>
+        <input name="gamme" class="w3-button w3-medium w3-text-white w3-border-black w3-round-large w3-border w3-hover-black w3-teal w3-Xlarge" type="submit" value="créer mon serveur Medium" {% if params.user_data[0].token_m == 0 %}disabled{% endif %}>
+        <input name="gamme" class="w3-button w3-medium w3-text-white w3-border-black w3-round-large w3-border w3-hover-black w3-teal w3-Xlarge" type="submit" value="créer mon serveur Gaming" {% if params.user_data[0].token_g == 0 %}disabled{% endif %}>
+      </form>
+    </div>
+    <div class="w3-container w3-center" id="pspi">
+      <form onsubmit="return loading()" action="/scripts/creat.php" method="POST">
+        <h1>Minecraft PAPER SPIGOT</h1>
+        <label for="nom">nom du serveur</label><br>
+        <input  class="w3-xlarge" type="text" name="nom" placeholder="Nom du serveur" required><br><br>
+        <label for="desc">Description du serveur</label><br>
+        <input  class="w3-xlarge" type="text" name="desc" placeholder="Description du serveur" required><br><br>
+        <label for="version">version (latest) = dernière version</label><br>
+        <input  class="w3-xlarge" type="text" name="version" placeholder="Version de paper" required><br><br>
+        <br>
+        <label for="slots">Choisissez le nombre de slots</label><br>
+        {% include 'form-minecraft.twig'%}
+                        <br>
+      <label for="mois">Nombre de mois</label>
+      <input type="number" min="1" max="12" name="mois" value="1"><br><br>
+        <input type="hidden" name="pack_id" value="1">
+        <input type="hidden" name="egg_id" value="26">
+        <input name="gamme" class="w3-button w3-medium w3-text-white w3-border-black w3-round-large w3-border w3-hover-black w3-teal w3-Xlarge" type="submit" value="créer mon serveur Essentiel" {% if params.user_data[0].token_e == 0 %}disabled{% endif %}>
+        <input name="gamme" class="w3-button w3-medium w3-text-white w3-border-black w3-round-large w3-border w3-hover-black w3-teal w3-Xlarge" type="submit" value="créer mon serveur Medium" {% if params.user_data[0].token_m == 0 %}disabled{% endif %}>
+        <input name="gamme" class="w3-button w3-medium w3-text-white w3-border-black w3-round-large w3-border w3-hover-black w3-teal w3-Xlarge" type="submit" value="créer mon serveur Gaming" {% if params.user_data[0].token_g == 0 %}disabled{% endif %}>
+      </form>
+    </div>
+    <div class="w3-container w3-center" id="forg">
+      <form onsubmit="return loading()" action="/scripts/creat.php" method="POST">
+        <h1>Minecraft FORGE</h1>
+        <label for="nom">nom du serveur</label><br>
+        <input  class="w3-xlarge" type="text" name="nom" placeholder="Nom du serveur" required><br><br>
+        <label for="desc">Description du serveur</label><br>
+        <input  class="w3-xlarge" type="text" name="desc" placeholder="Description du serveur" required><br><br>
+        <label for="version">version (latest) = dernière version</label><br>
+        <input  class="w3-xlarge" type="text" name="version" placeholder="Version de Forge" required><br><br>
+        <br>
+        {% include 'form-minecraft.twig'%}
+                        <br>
+      <label for="mois">Nombre de mois</label>
+      <input type="number" min="1" max="12" name="mois" value="1"><br><br>
+        <input type="hidden" name="pack_id" value="1">
+        <input type="hidden" name="egg_id" value="27">
+        <input name="gamme" class="w3-button w3-medium w3-text-white w3-border-black w3-round-large w3-border w3-hover-black w3-teal w3-Xlarge" type="submit" value="créer mon serveur Essentiel" {% if params.user_data[0].token_e == 0 %}disabled{% endif %}>
+        <input name="gamme" class="w3-button w3-medium w3-text-white w3-border-black w3-round-large w3-border w3-hover-black w3-teal w3-Xlarge" type="submit" value="créer mon serveur Medium" {% if params.user_data[0].token_m == 0 %}disabled{% endif %}>
+        <input name="gamme" class="w3-button w3-medium w3-text-white w3-border-black w3-round-large w3-border w3-hover-black w3-teal w3-Xlarge" type="submit" value="créer mon serveur Gaming" {% if params.user_data[0].token_g == 0 %}disabled{% endif %}>
+      </form>
+    </div>
+    <div class="w3-container w3-center" id="template-minecraft">
+      <input type="button" id="btm1" value=""></a>
+      <input type="button" id="btm2" value=""></a>
+      <div class="w3-container w3-center" id="template-taupe">
+        <form onsubmit="return loading()" action="/scripts/creat.php" method="POST">
+          <h1>Minecraft UHC TAUPE GUN</h1>
+          <label for="nom">nom du serveur</label><br>
+          <input  class="w3-xlarge" type="text" name="nom" placeholder="Nom du serveur" required><br><br>
+          <label for="desc">Description du serveur</label><br>
+          <input  class="w3-xlarge" type="text" name="desc" placeholder="Description du serveur" required><br><br>
+          <br>
+          {% include 'form-minecraft.twig'%}
+                          <br>
+      <label for="mois">Nombre de mois</label>
+      <input type="number" min="1" max="12" name="mois" value="1"><br><br>
+          <input type="hidden" name="pack_id" value="1">
+          <input type="hidden" name="egg_id" value="28">
+          <input name="gamme" class="w3-button w3-medium w3-text-white w3-border-black w3-round-large w3-border w3-hover-black w3-teal w3-Xlarge" type="submit" value="créer mon serveur Essentiel" {% if params.user_data[0].token_e == 0 %}disabled{% endif %}>
+          <input name="gamme" class="w3-button w3-medium w3-text-white w3-border-black w3-round-large w3-border w3-hover-black w3-teal w3-Xlarge" type="submit" value="créer mon serveur Medium" {% if params.user_data[0].token_m == 0 %}disabled{% endif %}>
+          <input name="gamme" class="w3-button w3-medium w3-text-white w3-border-black w3-round-large w3-border w3-hover-black w3-teal w3-Xlarge" type="submit" value="créer mon serveur Gaming" {% if params.user_data[0].token_g == 0 %}disabled{% endif %}>
+        </form>
+      </div>
+      <div class="w3-container w3-center" id="template-lg">
+        <form onsubmit="return loading()" action="/scripts/creat.php" method="POST">
+          <h1>Minecraft LOUP GAROUS UHC</h1>
+          <label for="nom">nom du serveur</label><br>
+          <input  class="w3-xlarge" type="text" name="nom" placeholder="Nom du serveur" required><br><br>
+          <label for="desc">Description du serveur</label><br>
+          <input  class="w3-xlarge" type="text" name="desc" placeholder="Description du serveur" required><br><br>
+          <br>
+          {% include 'form-minecraft.twig'%}
+                <br>
+      <label for="mois">Nombre de mois</label>
+      <input type="number" min="1" max="12" name="mois" value="1"><br><br>
+          <input type="hidden" name="pack_id" value="1">
+          <input type="hidden" name="egg_id" value="29">
+          <input name="gamme" class="w3-button w3-medium w3-text-white w3-border-black w3-round-large w3-border w3-hover-black w3-teal w3-Xlarge" type="submit" value="créer mon serveur Essentiel" {% if params.user_data[0].token_e == 0 %}disabled{% endif %}>
+          <input name="gamme" class="w3-button w3-medium w3-text-white w3-border-black w3-round-large w3-border w3-hover-black w3-teal w3-Xlarge" type="submit" value="créer mon serveur Medium" {% if params.user_data[0].token_m == 0 %}disabled{% endif %}>
+          <input name="gamme" class="w3-button w3-medium w3-text-white w3-border-black w3-round-large w3-border w3-hover-black w3-teal w3-Xlarge" type="submit" value="créer mon serveur Gaming" {% if params.user_data[0].token_g == 0 %}disabled{% endif %}>
+        </form>
+      </div>
+    </div>
+    <div class="w3-container w3-center" id="cusj">
+      <form onsubmit="return loading()" action="/scripts/creat.php" method="POST">
+        <h1>Minecraft CUSTOM JAR (open mod)</h1>
+        <label for="nom">nom du serveur</label><br>
+        <input  class="w3-xlarge" type="text" name="nom" placeholder="Nom du serveur" required><br><br>
+        <label for="desc">Description du serveur</label><br>
+        <input  class="w3-xlarge" type="text" name="desc" placeholder="Description du serveur" required><br><br>
+      <label for="mois">Nombre de mois</label>
+      <input type="number" min="1" max="12" name="mois" value="1">
+        <br><br>
+        <input type="hidden" name="pack_id" value="1">
+        <input type="hidden" name="egg_id" value="17">
+        <input name="gamme" class="w3-button w3-medium w3-text-white w3-border-black w3-round-large w3-border w3-hover-black w3-teal w3-Xlarge" type="submit" value="créer mon serveur Essentiel" {% if params.user_data[0].token_e == 0 %}disabled{% endif %}>
+        <input name="gamme" class="w3-button w3-medium w3-text-white w3-border-black w3-round-large w3-border w3-hover-black w3-teal w3-Xlarge" type="submit" value="créer mon serveur Medium" {% if params.user_data[0].token_m == 0 %}disabled{% endif %}>
+        <input name="gamme" class="w3-button w3-medium w3-text-white w3-border-black w3-round-large w3-border w3-hover-black w3-teal w3-Xlarge" type="submit" value="créer mon serveur Gaming" {% if params.user_data[0].token_g == 0 %}disabled{% endif %}>
+      </form>
+    </div>
+  </div>
+  <div class="w3-container w3-center" id="terraria">
+    <h2>Serveur TERRARIA</h2><br><br>
+    <input type="button" id="bt1" value=""></a>
+    <input type="button" id="bt2" value=""></a>
+    <input type="button" id="bt3" value="" disabled class="disabled"></a>
+    <div class="w3-container w3-center" id="tvan">
+      <form onsubmit="return loading()" action="/scripts/creat.php" method="POST">
+        <h1>TERRARIA VANILLA</h1>
+        <label for="nom">nom du serveur</label><br>
+        <input  class="w3-xlarge" type="text" name="nom" placeholder="Nom du serveur" required><br><br>
+        <label for="desc">Description du serveur</label><br>
+        <input  class="w3-xlarge" type="text" name="desc" placeholder="Description du serveur" required><br><br>
+        <label for="difficulty">Choisissez la difficulté</label><br>
+        <select name="difficulty" id="difficulty">
+          <option value="0">Normal</option>
+          <option value="1">Expert</option>
+          <option value="2">Master</option>
+          <option value="3">Journey</option>
+        </select><br>
+        <label for="taillemonde">Choisissez la taille du monde</label><br>
+        <select name="taillemonde" id="taillemonde">
+          <option value="1">petit</option>
+          <option value="2">moyen</option>
+          <option value="3">grand</option>
+        </select>
+              <br><br>
+      <label for="mois">Nombre de mois</label>
+      <input type="number" min="1" max="12" name="mois" value="1">
+        <br><br>
+        <input type="hidden" name="pack_id" value="5">
+        <input type="hidden" name="egg_id" value="19">
+        <input name="gamme" class="w3-button w3-medium w3-text-white w3-border-black w3-round-large w3-border w3-hover-black w3-teal w3-Xlarge" type="submit" value="créer mon serveur Essentiel" {% if params.user_data[0].token_e == 0 %}disabled{% endif %}>
+        <input name="gamme" class="w3-button w3-medium w3-text-white w3-border-black w3-round-large w3-border w3-hover-black w3-teal w3-Xlarge" type="submit" value="créer mon serveur Medium" {% if params.user_data[0].token_m == 0 %}disabled{% endif %}>
+        <input name="gamme" class="w3-button w3-medium w3-text-white w3-border-black w3-round-large w3-border w3-hover-black w3-teal w3-Xlarge" type="submit" value="créer mon serveur Gaming" {% if params.user_data[0].token_g == 0 %}disabled{% endif %}>
+      </form>
+    </div>
+    <div class="w3-container w3-center" id="tmod">
+      <form onsubmit="return loading()" action="/scripts/creat.php" method="POST">
+        <h1>TERRARIA TMODLOADER</h1>
+        <label for="nom">nom du serveur</label><br>
+        <input  class="w3-xlarge" type="text" name="nom" placeholder="Nom du serveur" required><br><br>
+        <label for="desc">Description du serveur</label><br>
+        <input  class="w3-xlarge" type="text" name="desc" placeholder="Description du serveur" required><br><br>
+        <label for="taillemonde">Choisissez la taille du monde</label><br>
+        <select name="taillemonde" id="taillemonde">
+          <option value="1">petit</option>
+          <option value="2">moyen</option>
+          <option value="3">grand</option>
+        </select>
+              <br><br>
+      <label for="mois">Nombre de mois</label>
+      <input type="number" min="1" max="12" name="mois" value="1">
+        <br><br>
+        <input type="hidden" name="pack_id" value="5">
+        <input type="hidden" name="egg_id" value="20">
+        <input name="gamme" class="w3-button w3-medium w3-text-white w3-border-black w3-round-large w3-border w3-hover-black w3-teal w3-Xlarge" type="submit" value="créer mon serveur Essentiel" {% if params.user_data[0].token_e == 0 %}disabled{% endif %}>
+        <input name="gamme" class="w3-button w3-medium w3-text-white w3-border-black w3-round-large w3-border w3-hover-black w3-teal w3-Xlarge" type="submit" value="créer mon serveur Medium" {% if params.user_data[0].token_m == 0 %}disabled{% endif %}>
+        <input name="gamme" class="w3-button w3-medium w3-text-white w3-border-black w3-round-large w3-border w3-hover-black w3-teal w3-Xlarge" type="submit" value="créer mon serveur Gaming" {% if params.user_data[0].token_g == 0 %}disabled{% endif %}>
+      </form>
+    </div>
+    <div class="w3-container w3-center" id="tsho">
+      <form onsubmit="return loading()" action="/scripts/creat.php" method="POST">
+        <h1>TERRARIA T-SHOCK</h1>
+        <label for="nom">nom du serveur</label><br>
+        <input  class="w3-xlarge" type="text" name="nom" placeholder="Nom du serveur" required><br><br>
+        <label for="desc">Description du serveur</label><br>
+        <input  class="w3-xlarge" type="text" name="desc" placeholder="Description du serveur" required><br><br>
+        <label for="taillemonde">Choisissez la taille du monde</label><br>
+        <select name="taillemonde" id="taillemonde">
+          <option value="1">petit</option>
+          <option value="2">moyen</option>
+          <option value="3">grand</option>
+        </select>
+              <br><br>
+      <label for="mois">Nombre de mois</label>
+      <input type="number" min="1" max="12" name="mois" value="1">
+        <br><br>
+        <input type="hidden" name="pack_id" value="5">
+        <input type="hidden" name="egg_id" value="21">
+        <input name="gamme" class="w3-button w3-medium w3-text-white w3-border-black w3-round-large w3-border w3-hover-black w3-teal w3-Xlarge" type="submit" value="créer mon serveur Essentiel" {% if params.user_data[0].token_e == 0 %}disabled{% endif %}>
+        <input name="gamme" class="w3-button w3-medium w3-text-white w3-border-black w3-round-large w3-border w3-hover-black w3-teal w3-Xlarge" type="submit" value="créer mon serveur Medium" {% if params.user_data[0].token_m == 0 %}disabled{% endif %}>
+        <input name="gamme" class="w3-button w3-medium w3-text-white w3-border-black w3-round-large w3-border w3-hover-black w3-teal w3-Xlarge" type="submit" value="créer mon serveur Gaming" {% if params.user_data[0].token_g == 0 %}disabled{% endif %}>
+      </form>
+    </div>
+  </div>
+  <div class="w3-container w3-center" id="rust">
+    <h2>Serveur RUST</h2><br><br>
+    <form onsubmit="return loading()" action="/scripts/creat.php" method="POST">
+      <label for="nom">Choisissez le nom du serveur (visible dans le panel)</label><br>
+      <input  class="w3-xlarge" type="text" name="nom" placeholder="Nom du serveur" required><br><br>
+      <label for="desc">Choisissez la description du serveur (visible dans le panel)</label><br>
+      <input  class="w3-xlarge" type="text" name="desc" placeholder="Description du serveur" required><br><br>
+      <label for="HOSTNAME">Choisissez le nom du serveur (visible dans RUST)</label><br>
+      <input  class="w3-xlarge" type="text" name="HOSTNAME" placeholder="Nom du serveur" required><br><br>
+      <label for="DESC_SERV">Choisissez la description du serveur (visible dans RUST)</label><br>
+      <input  class="w3-xlarge" type="text" name="DESC_SERV" placeholder="Description du serveur" required><br><br>
+      <label for="taillemonde">Choisissez la taille du monde</label><br>
+      <input  class="w3-xlarge" type="number" name="taillemonde" placeholder="ex:3000" min="0" max="10000" required><br><br>
+      <label for="slots">Choisissez le nombre de slots</label><br>
+      <input  class="w3-xlarge" type="number" name="slots" placeholder="ex:40" min="1" max="10000" required><br><br>
+      <label for="oxide">Oxide (pour les mods)</label><br>
+      <select select name="oxide" id="oxide">
+        <option value="0">non</option>
+        <option value="1">oui</option>
+      </select>
+            <br><br>
+      <label for="mois">Nombre de mois</label>
+      <input type="number" min="1" max="12" name="mois" value="1">
+      <br><br>
+      <input type="hidden" name="pack_id" value="4">
+      <input type="hidden" name="egg_id" value="14">
+      <input name="gamme" class="w3-button w3-medium w3-text-white w3-border-black w3-round-large w3-border w3-hover-black w3-teal w3-Xlarge" type="submit" value="créer mon serveur Gaming" {% if params.user_data[0].token_g == 0 %}disabled{% endif %}>
+    </form>
+  </div>
+  <div class="w3-container w3-center" id="7daystodie">
+    <h2>Serveur 7 DAY TO DIE</h2>
+    <form onsubmit="return loading()" action="/scripts/creat.php" method="POST">
+      <label for="nom">Choisissez le nom du serveur (visible dans le panel)</label><br>
+      <input  class="w3-xlarge" type="text" name="nom" placeholder="Nom du serveur" required><br><br>
+      <label for="desc">Choisissez la description du serveur (visible dans le panel)</label><br>
+      <input  class="w3-xlarge" type="text" name="desc" placeholder="Description du serveur" required><br><br>
+      <label for="HOSTNAME">Choisissez le nom du serveur (visible dans 7 days to die)</label><br>
+      <input  class="w3-xlarge" type="text" name="HOSTNAME" placeholder="Nom du serveur" required><br><br>
+      <label for="DESC_SERV">Choisissez la description du serveur (visible dans 7 days to die)</label><br>
+      <input  class="w3-xlarge" type="text" name="DESC_SERV" placeholder="Description du serveur" required><br><br>
+      <label for="slots">Choisissez le nombre de slots</label><br>
+      <input  class="w3-xlarge" type="number" name="slots" placeholder="ex:20" min="1" max="10000" required><br><br>
+      <label for="difficulty">Difficulté</label><br>
+      <select class="w3-xlarge" name="difficulty" id="difficulty">
+        <option value="0">je suis nul</option>
+        <option value="1">facile</option>
+        <option value="2">moyen</option>
+        <option value="3">difficile</option>
+        <option value="4">HARDCORE</option>
+        <option value="5">Trop fort (CHAD)</option>
+      </select>
+      <br><br>
+      <label for="mois">Nombre de mois</label>
+      <input type="number" min="1" max="12" name="mois" value="1">
+      <br><br>
+      <input type="hidden" name="pack_id" value="2">
+      <input type="hidden" name="egg_id" value="30">
+      <input name="gamme" class="w3-button w3-medium w3-text-white w3-border-black w3-round-large w3-border w3-hover-black w3-teal w3-Xlarge" type="submit" value="créer mon serveur Medium" {% if params.user_data[0].token_m == 0 %}disabled{% endif %}>
+      <input name="gamme" class="w3-button w3-medium w3-text-white w3-border-black w3-round-large w3-border w3-hover-black w3-teal w3-Xlarge" type="submit" value="créer mon serveur Gaming" {% if params.user_data[0].token_g == 0 %}disabled{% endif %}>
+    </form>
+  </div>
+  <div class="w3-container w3-center" id="mumble">
+    <h2>Serveur Mumble</h2>
+    <form onsubmit="return loading()" action="/scripts/creat.php" method="POST">
+      <label for="nom">nom du serveur</label><br>
+      <input  class="w3-xlarge" type="text" name="nom" placeholder="Nom du serveur" required><br><br>
+      <label for="desc">Description du serveur</label><br>
+      <input  class="w3-xlarge" type="text" name="desc" placeholder="Description du serveur" required><br><br>
+      <label for="slots">Choisissez le nombre de slots</label><br>
+      <input  class="w3-xlarge" type="number" name="slots" placeholder="ex:40" min="1" max="10000" required><br><br>
+      <label for="mois">Nombre de mois</label>
+      <input type="number" min="1" max="12" name="mois" value="1">
+      <br><br>
+      <input type="hidden" name="pack_id" value="3">
+      <input type="hidden" name="egg_id" value="12">
+      <input name="gamme" class="w3-button w3-medium w3-text-white w3-border-black w3-round-large w3-border w3-hover-black w3-teal w3-Xlarge" type="submit" value="créer mon serveur Essentiel" {% if params.user_data[0].token_e == 0 %}disabled{% endif %}>
+      <input name="gamme" class="w3-button w3-medium w3-text-white w3-border-black w3-round-large w3-border w3-hover-black w3-teal w3-Xlarge" type="submit" value="créer mon serveur Medium" {% if params.user_data[0].token_m == 0 %}disabled{% endif %}>
+      <input name="gamme" class="w3-button w3-medium w3-text-white w3-border-black w3-round-large w3-border w3-hover-black w3-teal w3-Xlarge" type="submit" value="créer mon serveur Gaming" {% if params.user_data[0].token_g == 0 %}disabled{% endif %}>
+    </form>
+  </div>
+  <div class="w3-container w3-center" id="factorio">
+    <h2>Serveur Factorio</h2>
+    <form onsubmit="return loading()" action="/scripts/creat.php" method="POST">
+      <label for="nom">Choisissez le nom du serveur (visible dans le panel)</label><br>
+      <input  class="w3-xlarge" type="text" name="nom" placeholder="Nom du serveur" required><br><br>
+      <label for="desc">Choisissez la description du serveur (visible dans le panel)</label><br>
+      <input  class="w3-xlarge" type="text" name="desc" placeholder="Description du serveur" required><br><br>
+      <label for="HOSTNAME">Choisissez le nom du serveur (visible dans Factorio)</label><br>
+      <input  class="w3-xlarge" type="text" name="HOSTNAME" placeholder="Nom du serveur" required><br><br>
+      <label for="DESC_SERV">Choisissez la description du serveur (visible Factorio)</label><br>
+      <input  class="w3-xlarge" type="text" name="DESC_SERV" placeholder="Description du serveur" required><br><br>
+      <label for="slots">Choisissez le nombre de slots</label><br>
+      <input  class="w3-xlarge" type="number" name="slots" placeholder="ex:8" min="1" max="1000"><br><br>
+      <label for="token">Jeton serveur (nécessaire pour que le serveur apparaisse dans la liste publique)</label><br>
+      <input  class="w3-xlarge" type="text" name="token" placeholder="optionel"><br><br>
+      <label for="pseudo">Pseudo du serveur (nécessaire pour que le serveur apparaisse dans la liste publique)</label><br>
+      <input  class="w3-xlarge" type="text" name="pseudo" placeholder="optionel"><br>
+{#
+      <label for="crack">acceptez les version crackés</label><br>
+      <select name="crack" id="crack">
+        <option value='true'>non</option>
+        <option value='false'>oui</option>
+      </select>
+#}
+      <br>
+      <label for="mois">Nombre de mois</label>
+      <input type="number" min="1" max="12" name="mois" value="1">
+      <br><br>
+      <input type="hidden" name="pack_id" value="5">
+      <input type="hidden" name="egg_id" value="24">
+      <input name="gamme" class="w3-button w3-medium w3-text-white w3-border-black w3-round-large w3-border w3-hover-black w3-teal w3-Xlarge" type="submit" value="créer mon serveur Essentiel" {% if params.user_data[0].token_e == 0 %}disabled{% endif %}>
+      <input name="gamme" class="w3-button w3-medium w3-text-white w3-border-black w3-round-large w3-border w3-hover-black w3-teal w3-Xlarge" type="submit" value="créer mon serveur Medium" {% if params.user_data[0].token_m == 0 %}disabled{% endif %}>
+      <input name="gamme" class="w3-button w3-medium w3-text-white w3-border-black w3-round-large w3-border w3-hover-black w3-teal w3-Xlarge" type="submit" value="créer mon serveur Gaming" {% if params.user_data[0].token_g == 0 %}disabled{% endif %}>
+    </form>
+  </div>
+  <div class="w3-container w3-center" id="ark">
+    <h2>Serveur ARK</h2><br><br>
+    <form onsubmit="return loading()" action="/scripts/creat.php" method="POST">
+      <label for="nom">Choisissez le nom du serveur (visible dans le panel)</label><br>
+      <input  class="w3-xlarge" type="text" name="nom" placeholder="Nom du serveur" required><br><br>
+      <label for="desc">Choisissez la description du serveur (visible dans le panel)</label><br>
+      <input  class="w3-xlarge" type="text" name="desc" placeholder="Description du serveur" required><br><br>
+      <label for="HOSTNAME">Choisissez le nom du serveur (visible dans ARK)</label><br>
+      <input  class="w3-xlarge" type="text" name="HOSTNAME" placeholder="Nom du serveur" required><br><br>
+      <label for="passwd">Mot de passe du serveur (optionel)</label><br>
+      <input  class="w3-xlarge" type="text" name="passwd" placeholder="Mot de passe"><br><br>
+      <label for="slots">Choisissez le nombre de slots</label><br>
+      <input  class="w3-xlarge" type="number" name="slots" placeholder="ex:40" min="1" max="10000" required><br><br>
+      <label for="battleye">battleye (anti triche)</label><br>
+      <select class="w3-xlarge" name="battleye" id="battleye">
+        <option value="0">Oui</option>
+        <option value="1">Non</option>
+      </select><br>
+      <label for="map">Choix de la map</label><br>
+      <select class="w3-xlarge" name="map" id="map">
+        <option value="TheIsland">TheIsland</option>
+        <option value="TheCenter">TheCenter</option>
+        <option value="Ragnarok">Ragnarok</option>
+        <option value="ScorchedEarth_P">ScorchedEarth_P</option>
+        <option value="Aberration_P">Aberration_P</option>
+        <option value="Extinction">Extinction</option>
+        <option value="Valguero_P">Valguero_P</option>
+        <option value="Genesis">Genesis</option>
+      </select><br><br>
+      <label for="mois">Nombre de mois</label>
+      <input type="number" min="1" max="12" name="mois" value="1">
+      <br><br>
+      <input type="hidden" name="pack_id" value="2">
+      <input type="hidden" name="egg_id" value="31">
+      <input name="gamme" class="w3-button w3-medium w3-text-white w3-border-black w3-round-large w3-border w3-hover-black w3-teal w3-Xlarge" type="submit" value="créer mon serveur Gaming" {% if params.user_data[0].token_g == 0 %}disabled{% endif %}>
+    </form>
+  </div>
+  <br>
+</div>
+  {% include 'footer.twig'%}

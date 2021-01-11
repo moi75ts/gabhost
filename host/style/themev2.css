@@ -1,0 +1,42 @@
+.gab-blue{
+  background-color: #3008D7;
+}
+.gab-text{
+  color:#DCDCDC;
+}
+.gab-selected{
+  border-bottom: solid #F2380F;
+}
+footer{
+  background-color: #222831;
+  min-height:50px;
+}
+body{
+  min-height: 100vh; 
+  margin: 0; 
+  
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+input{
+  border-bottom: none;
+  border-top:none;
+  border-left:none;
+  border-right:none;
+  height: 3em;
+  width: 320px;
+  margin: 5%;
+  background: white;
+}
+.loginform {
+  position: relative;
+  top:20vh;
+  text-align: center;
+  width: 360px;
+  margin: auto;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.container{
+  width: 320px;
+  padding:10%;
+}

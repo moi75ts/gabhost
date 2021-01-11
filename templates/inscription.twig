@@ -1,0 +1,73 @@
+{% include 'sidebar.twig' with {'params':params} %}
+<style>
+body{
+    background-image: url("../img/minecraft1.webp"),url("../img/rust1.webp"),url("../img/7daystodie1.webp"),url("../img/terraria1.webp");
+    background-size:cover;
+    animation: slideBg 14s linear infinite 0s;
+    animation-timing-function: ease-in-out;
+}
+@keyframes slideBg {
+  0%{
+      background-image: url("../img/minecraft1.webp");
+  }
+  12.5%{
+      background-image: url("../img/minecraft1.webp");
+  }
+  25%{
+      background-image: url("../img/rust1.webp");
+  }
+  37.5%{
+      background-image: url("../img/rust1.webp");
+  }
+  50%{
+      background-image: url("../img/7daystodie1.webp");
+  }
+  62.5{
+      background-image: url("../img/7daystodie1.webp");
+  }
+  75%{
+      background-image: url("../img/terraria1.webp");
+  }
+  87.5%{
+      background-image: url("../img/terraria1.webp");
+  }
+}
+</style>
+  <div class="blanc-05 w3-display-middle text-align maboite firefox-display-center">
+    <form action="scripts/inscription.php" method="POST">
+        <h2 class="verdana texte-noir">Inscription GABHOST</h2>
+        <label class="w3-xlarge" for="email">
+		    <img src="svg/at.svg" class="svg-icon">
+		</label>
+		<input  class="w3-xlarge" type="email" name="email" placeholder="EMAIL" id="username" required><br><br>
+        <label class="w3-xlarge" for="email">
+		    <img src="svg/at.svg" class="svg-icon">
+		</label>
+		<input  class="w3-xlarge" type="email" name="email2" placeholder="CONFIRMEZ EMAIL" id="username" required><br><br>
+        <label class="w3-xlarge" for="pseudo">
+		    <img src="svg/person.svg" class="svg-icon">
+		</label>
+		<input  class="w3-xlarge" type="text" name="pseudo" placeholder="PSEUDO" id="username" required><br><br>
+        <label class="w3-xlarge" for="prenom">
+		    <img src="svg/pencil-fill.svg" class="svg-icon">
+		</label>
+		<input  class="w3-xlarge" type="text" name="prenom" placeholder="PRENOM" id="username" required><br><br>
+        <label class="w3-xlarge" for="nom">
+		    <img src="svg/pencil-fill.svg" class="svg-icon">
+		</label>
+		<input  class="w3-xlarge" type="text" name="nom" placeholder="NOM" id="username" required><br><br>
+		<label class="w3-xlarge" for="password">
+		    <img src="svg/lock.svg" class="svg-icon">
+		</label>
+		<input class="w3-xlarge" minlength="8" type="password" name="password" placeholder="MOT DE PASSE" id="password" required>
+        <img onclick="showpasswd()" id="passwdeye" src="svg/eye.svg" class="svg-icon" style="margin-left:-30px;position:absolute;margin-top:12px;"><br><br>
+        <label class="w3-xlarge" for="password2">
+		    <img src="svg/lock.svg" class="svg-icon">
+		</label>
+		<input class="w3-xlarge" minlength="8" type="password" name="password2" placeholder="CONFIRMEZ MDP" id="password2" required>
+        <img onclick="showpasswd()" id="passwdeye2" src="svg/eye.svg" class="svg-icon" style="margin-left:-30px;position:absolute;margin-top:12px;"><br><br>
+        <input type="hidden" name="csrf" value="{{params.csrf}}">
+        <input class="w3-button w3-green w3-xlarge" style="width:100%" type="submit" value="INSCRIPTION">
+        <br><dfn class="w3-small w3-text-red">mot de passe 8 charactères minimum</dfn>
+    </form>
+  </div>
