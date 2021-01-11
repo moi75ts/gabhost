@@ -1,0 +1,10 @@
+<?php
+function getpassword(){
+    return "mysql password";
+}
+function getapi(){
+    return "pteroq api key one";
+}
+function getapi2(){
+    return "pteroq api key 2";
+}
