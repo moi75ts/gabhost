@@ -101,7 +101,7 @@ function bdd_connect(){
     try {
         $conn = new PDO($dsn, "php", getpassword(), $options); //getpassword function for your php.php file
     } catch(\PDOException $e) {
-        show_error_nodest("Erreur dans la connexion à la BDD"); //if error
+        show_error_nodest("Erreur dans la connexion à la BDD",""); //if error
     }
     return $conn; // if all worked return pdo connection object
 }
