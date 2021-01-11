@@ -10,7 +10,7 @@ CLASS SERVER {
     public $gamme;
     private $api;
     function __construct($suuid,$oid){
-        $this->conn = $this->connect();
+        $this->conn = bdd_connect();
         $this->id = $this->idfromsuuid($suuid);
         $this->secure = $this->verifyownership($oid);
         $this->gamme = $this->getgamme();
@@ -178,16 +178,4 @@ CLASS SERVER {
         return $newport;
     }
 
-    private function connect(){
-        header("Cache-Control: no-cache, must-revalidate");
-        header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
-        $dsn = "mysql:host=127.0.0.1;dbname=panel";
-        $options = [
-            PDO::ATTR_EMULATE_PREPARES   => false, // turn off emulation mode for "real" prepared statements
-            PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION, //turn on errors in the form of exceptions
-            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC, //make the default fetch be an associative array
-        ];
-        $conn = new PDO($dsn, "php", "2TvG(EW&s?y\\6eC/", $options);
-        return $conn;
-    }
 }
