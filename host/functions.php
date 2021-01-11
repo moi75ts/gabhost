@@ -92,16 +92,18 @@ function sanitize_bool($bool){
 }
 
 function bdd_connect(){
-    header("Cache-Control: no-cache, must-revalidate");
-    header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
-    $dsn = "mysql:host=127.0.0.1;dbname=panel";
+    $dsn = "mysql:host=127.0.0.1;dbname=panel";//host infos
     $options = [
         PDO::ATTR_EMULATE_PREPARES   => false, // turn off emulation mode for "real" prepared statements
         PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION, //turn on errors in the form of exceptions
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC, //make the default fetch be an associative array
     ];
-    $conn = new PDO($dsn, "php", getpassword(), $options);
-    return $conn;
+    try {
+        $conn = new PDO($dsn, "php", getpassword(), $options); //getpassword function for your php.php file
+    } catch(\PDOException $e) {
+        show_error_nodest("Erreur dans la connexion à la BDD"); //if error
+    }
+    return $conn; // if all worked return pdo connection object
 }
 
 function show_error($erreur,$page){
