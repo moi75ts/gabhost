@@ -1,10 +1,10 @@
 <?php
 function getpassword(){
-    return "mysql password";
+    return "mysql password"; //return string representing your database password
 }
 function getapi(){
-    return "pteroq api key one";
+    return "pteroq api key one"; //return string representing your api key
 }
 function getapi2(){
-    return "pteroq api key 2";
+    return "pteroq api key 2"; //return string representing your 2nd api key (can be the same as the 1st one)
 }
