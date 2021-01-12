@@ -1,7 +1,7 @@
 <?php
 //error_reporting(E_ALL);
 //ini_set("display_errors", 1);
-require "../php.php";
+require "/var/www/php.php";
 function files(){
     $files = shell_exec("ls ./fichiers/");
     $files = preg_split('/\s+/', $files);
