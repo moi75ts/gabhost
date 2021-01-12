@@ -26,5 +26,4 @@ if ($serveur->secure === TRUE){
     $stmt = $conn->prepare($query2);
     $stmt->execute(['id' => $_SESSION["id"],'mois' => $mois]);
     show_success("Vous venez d'étendre la location de votre serveur.","?p=Mes-serveurs");
-    echo "...";
 }
