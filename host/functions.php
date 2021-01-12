@@ -1,7 +1,7 @@
 <?php
 //error_reporting(E_ALL);
 //ini_set("display_errors", 1);
-require "/var/www/php.php";
+require "../php.php";
 function files(){
     $files = shell_exec("ls ./fichiers/");
     $files = preg_split('/\s+/', $files);
@@ -403,19 +403,7 @@ function oneport($id){
 class bdd {
     public $conn;
     function __construct(){
-        $this->conn = $this->connect();
-    }
-    private function connect(){
-        header("Cache-Control: no-cache, must-revalidate");
-        header("Expires: Sat, 26 Jul 1997 05:00:00 GMT");
-        $dsn = "mysql:host=127.0.0.1;dbname=panel";
-        $options = [
-            PDO::ATTR_EMULATE_PREPARES   => false, // turn off emulation mode for "real" prepared statements
-            PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION, //turn on errors in the form of exceptions
-            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC, //make the default fetch be an associative array
-        ];
-        $conn = new PDO($dsn, "php", "2TvG(EW&s?y\\6eC/", $options);
-        return $conn;
+        $this->conn = bdd_connect();
     }
     public function getvalue($what, $table, $where, $equals){
         $query = 'SELECT ? FROM ? WHERE ? = ?';
