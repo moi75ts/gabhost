@@ -120,7 +120,7 @@ function show_error($erreur,$page){
         <div class=\"w3-panel w3-display-container w3-red w3-center w3-display-middle full-width firefox-display-center\">
     <p>ERREUR.</p>
     <p>$erreur</p>
-    <a href=\"https://gabhost.tk/$page\"><button class=\"w3-button w3-medium w3-light-blue\">OK</button></a><br><br>
+    <a href=\"/$page\"><button class=\"w3-button w3-medium w3-light-blue\">OK</button></a><br><br>
   </div>
   </body>";
   die();
@@ -139,7 +139,7 @@ function show_error_light($erreur,$page){
     <div class=\"w3-panel w3-display-container w3-red w3-center w3-display-middle full-width firefox-display-center\">
     <p>ERREUR.</p>
     <p>$erreur</p>
-    <a href=\"https://gabhost.tk/$page\"><button class=\"w3-button w3-medium w3-light-blue\">OK</button></a><br><br>
+    <a href=\"/$page\"><button class=\"w3-button w3-medium w3-light-blue\">OK</button></a><br><br>
   </div>
   </body>";
   die();
@@ -156,7 +156,7 @@ function show_error_nodest($erreur,$page){
     <div class=\"w3-panel w3-display-container w3-red w3-center w3-display-middle full-width firefox-display-center\">
     <p>ERREUR.</p>
     <p>$erreur</p>
-    <a href=\"https://gabhost.tk/$page\"><button class=\"w3-button w3-medium w3-light-blue\">OK</button></a><br><br>
+    <a href=\"/$page\"><button class=\"w3-button w3-medium w3-light-blue\">OK</button></a><br><br>
   </div>
   </body>";
   die();
@@ -173,7 +173,7 @@ function show_success($message,$page){
     <div class=\"w3-panel w3-display-container w3-green w3-center w3-display-middle full-width firefox-display-center\">
     <p>SUCCES.</p>
     <p>$message</p>
-    <a href=\"https://gabhost.tk/$page\"><button class=\"w3-button w3-medium w3-light-blue\">NICE !</button></a><br><br>
+    <a href=\"/$page\"><button class=\"w3-button w3-medium w3-light-blue\">NICE !</button></a><br><br>
   </div>
   </body>";
 }
