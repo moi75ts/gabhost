@@ -71,7 +71,7 @@
 <a href="https://panel.gabhost.tk/server/{{ serveur.uuidShort }}"><button style="text-align:center;"class="w3-button w3-green"><img src="svg/link-45deg.svg" class="svg-icon svg-blanc"> {{serveur.name}}</button></a>
 <span class="w3-large">❝</span> {{ serveur.description }} <span class="w3-large">❞</span>
 <hr>
-<h3>Actions:</h3>
+<h3>Actions :</h3>
  <form method="POST" onsubmit="return loading()" action="/scripts/oneport.php" style="display: inline;"><input type="submit" value="Ajouter un port" class="w3-button w3-medium w3-text-white w3-border-white w3-round-large w3-border w3-hover-black"><input type="hidden" name="suuid" value="{{serveur.uuidShort}}"></form><br>
 <br>
 
@@ -119,9 +119,9 @@
         {% set bgleft = "red" %}
         {% set leftDays = "Suspendu" %}
     {% endif %}
-    <h3>Informations:</h3>
+    <h3>Informations :</h3>
         <h5>Expire le : {{serveur.expdate|date("d/m/Y")}} à minuit <span style="background-color:{{bgleft}};border-radius:5px;padding:3px;">{{ leftDays }}</span></h5> 
-        <h5>Disparais le : {{serveur.expdate|date_modify("+5 day")|date("d/m/Y")}} à minuit <span style="background-color:{{bgleft}};border-radius:5px;padding:3px;">{{ deletedays }} jours</span></h5>
+        <h5>Disparait le : {{serveur.expdate|date_modify("+5 day")|date("d/m/Y")}} à minuit <span style="background-color:{{bgleft}};border-radius:5px;padding:3px;">{{ deletedays }} jours</span></h5>
         <form action="/scripts/extendloc.php" method="POST">
             <input type="hidden" name="csrf" value="">
             <label for="mois"><h5>Etendre la location de mon serveur (mois)</h5></label>
