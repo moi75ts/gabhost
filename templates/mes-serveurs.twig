@@ -128,7 +128,26 @@
             {% if (((gamme == "Essentiel") and params.user_data[0].token_e <= 0) or ((gamme == "Medium") and params.user_data[0].token_m <= 0) or ((gamme == "Gaming") and params.user_data[0].token_g <= 0)) %}
                 {% set disabled = "disabled" %}
             {% endif %}
-            <input type="number" min="1" max="12" value="0" name="mois" class="w3-input" {{disabled}}><br>
+            {% if gamme == "Essentiel" %}
+                {% if params.user_data[0].token_e > 12 %}
+                    {% set maxextmois = 12 %}
+                {% else %}
+                    {% set maxextmois = params.user_data[0].token_e %}
+                {% endif %}
+            {% elseif gamme == "Medium" %}
+                {% if params.user_data[0].token_m > 12 %}
+                    {% set maxextmois = 12 %}
+                {% else %}
+                    {% set maxextmois = params.user_data[0].token_m %}
+                {% endif %}
+            {% else %}
+                {% if params.user_data[0].token_g > 12 %}
+                    {% set maxextmois = 12 %}
+                {% else %}
+                    {% set maxextmois = params.user_data[0].token_g %}
+                {% endif %}
+            {% endif %}
+            <input type="number" min="1" max="{{maxextmois}}" value="0" name="mois" class="w3-input" {{disabled}}><br>
             <input type="submit" value="Etendre mon serveur" class="w3-button w3-medium w3-text-white w3-border-white w3-round-large w3-border w3-hover-black" {{disabled}}>
             <input type="hidden" name="suuid" value="{{serveur.uuidShort}}">
         </form>

@@ -506,3 +506,24 @@ function newark($id,$suuid,$oid){
     $server->setprimaryport($gameport);
     return TRUE;
 }
+
+function gettoken($uid,$sid){
+    $server = new SERVER($sid,$uid);
+    $gamme = $server->gamme;
+    $conn = bdd_connect();
+    switch ($gamme){
+        case "gaming":
+            $stmt = $conn->prepare("SELECT token_g FROM users WHERE id = ?");
+            break;
+        case "medium":
+            $stmt = $conn->prepare("SELECT token_m FROM users WHERE id = ?");
+            break;
+        case "essentiel":
+            $stmt = $conn->prepare("SELECT token_e FROM users WHERE id = ?");
+            break;
+        default:
+            show_error("Gamme inconnue","?p=Accueil");
+    }
+    $stmt->execute(array($uid));
+    return $stmt->fetchColumn();
+}

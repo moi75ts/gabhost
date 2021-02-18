@@ -1,6 +1,6 @@
 <?php
-error_reporting(E_ALL);
-ini_set("display_errors", 1);
+//error_reporting(E_ALL);
+//ini_set("display_errors", 1);
 require "../functions.php";
 session_start();
 $mois = sanitize_number($_POST['mois']);
@@ -10,6 +10,10 @@ if( $mois >= 1 AND $mois <= 12){
 }
 $serveur = NEW SERVER($_POST["suuid"],$_SESSION["id"]);
 if ($serveur->secure === TRUE){
+    if ($mois <= gettoken($_SESSION["id"],$_POST["suuid"])){
+    }else{
+        show_error("Vous n'avez pas asser de jetons pour la durée que vous voulez","?p=Accueil");
+    }
     if(($serveur->gamme) === "essentiel"){
         $query2 = "UPDATE `users` SET `token_e`= token_e-:mois WHERE id = :id";
     }
