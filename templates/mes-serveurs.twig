@@ -22,8 +22,68 @@
     <h4>vous avez {{params.user_data[0].token_e}} jeton(s) Essentiel, {{params.user_data[0].token_m}} jeton(s) Medium et {{params.user_data[0].token_g}} jeton(s) GAMING</h4>
    </div>
 </div>
+{% set jeux = [] %}
 {% for serveur in params.serveurs %}
-
+    {% if (serveur.egg_id == 16) or (serveur.egg_id == 17) or (serveur.egg_id == 25) or (serveur.egg_id == 26) or (serveur.egg_id == 27) or (serveur.egg_id == 28) or (serveur.egg_id == 29) %}
+        {% set game = "Minecraft" %}
+        {% set jeux = jeux|merge(['Minecraft']) %}
+    {% elseif (serveur.egg_id == 12) %}
+        {% set game = "Mumble" %}
+        {% set jeux = jeux|merge(['Mumble']) %}
+    {% elseif (serveur.egg_id == 14) %}
+        {% set game = "Rust" %}
+        {% set jeux = jeux|merge(['Rust']) %}
+    {% elseif (serveur.egg_id == 21) or (serveur.egg_id == 19) or (serveur.egg_id == 20) %}
+        {% set game = "Terraria" %}
+        {% set jeux = jeux|merge(['Terraria']) %}
+    {% elseif (serveur.egg_id == 24) %}
+        {% set game = "Factorio" %}
+        {% set jeux = jeux|merge(['Factorio']) %}
+    {% elseif (serveur.egg_id == 30) %}
+        {% set game = "7 Days to die" %}
+        {% set jeux = jeux|merge(['7 Days to die']) %}
+    {% elseif (serveur.egg_id == 31) %}
+        {% set game = "Ark" %}
+        {% set jeux = jeux|merge(['Ark']) %}
+    {% else %}
+        {% set game = "Gabhost" %}
+        {% set jeux = jeux|merge(['Gabhost']) %}
+    {% endif %}
+{% endfor %}
+{% set jeux = jeux|gbunique %}
+{% for jeu in jeux %}
+<div class="w3-container w3-center">
+    <div class="w3-panel panel-black" style="padding:1.5vh;margin:0.5vh;border-top:solid 3px; border-image-source: linear-gradient(to right, green 0%, cyan 100%);border-image-slice: 5;">
+     <h4>SERVEUR(s) {{jeu}}</h4>
+    </div>
+</div>
+{% for serveur in params.serveurs %}
+    {% if (serveur.egg_id == 16) or (serveur.egg_id == 17) or (serveur.egg_id == 25) or (serveur.egg_id == 26) or (serveur.egg_id == 27) or (serveur.egg_id == 28) or (serveur.egg_id == 29) %}
+        {% set game = "Minecraft" %}
+        {% set jeux = jeux|merge(['Minecraft']) %}
+    {% elseif (serveur.egg_id == 12) %}
+        {% set game = "Mumble" %}
+        {% set jeux = jeux|merge(['Mumble']) %}
+    {% elseif (serveur.egg_id == 14) %}
+        {% set game = "Rust" %}
+        {% set jeux = jeux|merge(['Rust']) %}
+    {% elseif (serveur.egg_id == 21) or (serveur.egg_id == 19) or (serveur.egg_id == 20) %}
+        {% set game = "Terraria" %}
+        {% set jeux = jeux|merge(['Terraria']) %}
+    {% elseif (serveur.egg_id == 24) %}
+        {% set game = "Factorio" %}
+        {% set jeux = jeux|merge(['Factorio']) %}
+    {% elseif (serveur.egg_id == 30) %}
+        {% set game = "7 Days to die" %}
+        {% set jeux = jeux|merge(['7 Days to die']) %}
+    {% elseif (serveur.egg_id == 31) %}
+        {% set game = "Ark" %}
+        {% set jeux = jeux|merge(['Ark']) %}
+    {% else %}
+        {% set game = "Gabhost" %}
+        {% set jeux = jeux|merge(['Gabhost']) %}
+    {% endif %}
+    {% if game == jeu %}
     {% if  serveur.cpu == 70 %}
         {% set gamme = "Essentiel" %}
             {% set json %}
@@ -47,25 +107,9 @@
 
     {% set json = json|json_decode() %}
 
-<div class="w3-container w3-mobile {% if (params.serveurs|length >= 2 ) %}w3-half{% endif %}">
+<div class="w3-container w3-mobile {% if (params.serveurs|length >= 2 ) %}w3-half{% endif %}" style="">
     <div class="w3-panel panel-black" style="padding:1.5vh;margin:0.5vh;border-top:solid 3px; border-color:{{ color }};">
-        {% if (serveur.egg_id == 16) or (serveur.egg_id == 17) or (serveur.egg_id == 25) or (serveur.egg_id == 26) or (serveur.egg_id == 27) or (serveur.egg_id == 28) or (serveur.egg_id == 29) %}
-            <span class="w3-xlarge">Serveur Minecraft</span>
-        {% elseif (serveur.egg_id == 12) %}
-            <span class="w3-xlarge">Serveur Mumble</span>
-        {% elseif (serveur.egg_id == 14) %}
-            <span class="w3-xlarge">Serveur Rust</span>
-        {% elseif (serveur.egg_id == 21) or (serveur.egg_id == 19) or (serveur.egg_id == 20) %}
-            <span class="w3-xlarge">Serveur Terraria</span>
-        {% elseif (serveur.egg_id == 24) %}
-            <span class="w3-xlarge">Serveur Factorio</span>
-        {% elseif (serveur.egg_id == 30) %}
-            <span class="w3-xlarge">Serveur 7 Days to die</span>
-        {% elseif (serveur.egg_id == 31) %}
-            <span class="w3-xlarge">Serveur Ark</span>
-        {% else %}
-            <span class="w3-xlarge">Serveur Gabhost</span>
-        {% endif %}
+        <span class="w3-xlarge">Serveur {{game}}</span>
         <span class="w3-xlarge" style="color:#90ee90;float:right;">Serveur {{gamme}}</span>
         <hr style="clear:both;">
 <a href="https://panel.gabhost.tk/server/{{ serveur.uuidShort }}"><button style="text-align:center;"class="w3-button w3-green"><img src="svg/link-45deg.svg" class="svg-icon svg-blanc"> {{serveur.name}}</button></a>
@@ -154,7 +198,9 @@
         {# endDate and startDate are strings or DateTime objects #}
             </div>
          </div>
+        {% else %}{% endif %}
         {% endfor %}
+{% endfor %}
 <div class="w3-container w3-center">
     <div class="w3-panel w3-blue">
         <p class="w3-large">Vous avez {{params.serveurs|length}} serveur(s) avec la Gabhost</p>

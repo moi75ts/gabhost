@@ -1,6 +1,6 @@
 <?php
-//error_reporting(E_ALL);
-//ini_set("display_errors", 1);
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
 //charge twig
 session_start();
 if(!empty($_SESSION['pseudo'])){
@@ -17,7 +17,10 @@ $filter = new \Twig\TwigFilter('json_decode', function ($string) {
     return json_decode($string, true);
 });
 $twig->addFilter($filter);
-
+$filter = new \Twig\TwigFilter('gbunique', function ($string) {
+    return array_unique($string);
+});
+$twig->addFilter($filter);
 //Routing
 $page = "Accueil";
 if (isset($_GET['p'])){
