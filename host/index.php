@@ -13,6 +13,8 @@ $loader = new \Twig\Loader\FilesystemLoader('../templates');
 $twig = new \Twig\Environment($loader,['debug' => true, 'auto_reload' => true]);
 $twig->addExtension(new \Twig\Extension\DebugExtension());
 
+
+//filter twig
 $filter = new \Twig\TwigFilter('json_decode', function ($string) {
     return json_decode($string, true);
 });
@@ -21,6 +23,12 @@ $filter = new \Twig\TwigFilter('gbunique', function ($string) {
     return array_unique($string);
 });
 $twig->addFilter($filter);
+$filter = new \Twig\TwigFilter('gbcount', function ($string) {
+    return array_count_values($string);
+});
+$twig->addFilter($filter);
+
+
 //Routing
 $page = "Accueil";
 if (isset($_GET['p'])){
