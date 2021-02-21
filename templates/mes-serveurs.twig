@@ -193,18 +193,9 @@
                         <input type="range" min="0" max="{{maxextmois}}" value="0" name="mois" class="slider" list="custom-list" {{disabled}}><br>
                             <div class="sliderticks">
                                 <p>0</p>
-                                <p>1</p>
-                                <p>2</p>
-                                <p>3</p>
-                                <p>4</p>
-                                <p>5</p>
-                                <p>6</p>
-                                <p>7</p>
-                                <p>8</p>
-                                <p>9</p>
-                                <p>10</p>
-                                <p>11</p>
-                                <p>12</p>
+                                {% for i in 1..maxextmois %}
+                                    <p>{{i}}</p>
+                                {% endfor %}
                             </div>
                         <input type="submit" value="Etendre mon serveur" class="w3-button w3-medium w3-text-white w3-border-white w3-round-large w3-border w3-hover-black" {{disabled}}>
                         <input type="hidden" name="suuid" value="{{serveur.uuidShort}}">
