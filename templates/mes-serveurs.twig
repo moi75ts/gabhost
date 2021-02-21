@@ -1,5 +1,4 @@
 {% include 'sidebar.twig' with {'params':params} %}
-
 {% if params.serveurs == "empty" %}
     <div class="w3-container w3-center">
         <div class="w3-panel w3-blue">
@@ -54,7 +53,7 @@
 {% for jeu in jeux|gbunique %}
     <div class="w3-container w3-center">
         <div class="w3-panel panel-black" style="padding:1.5vh;margin:0.5vh;border-top:solid 3px; border-image-source: linear-gradient(to right, green 0%, cyan 100%);border-image-slice: 5;">
-         <h4>SERVEUR(s) {{jeu}}</h4>
+         <h4>SERVEUR{% if (jeux|gbcount[jeu] >= 2) %}S{% endif %} {{jeu}}</h4>
         </div>
     </div>
     {% for serveur in params.serveurs %}
@@ -191,7 +190,22 @@
                                 {% set maxextmois = params.user_data[0].token_g %}
                             {% endif %}
                         {% endif %}
-                        <input type="number" min="1" max="{{maxextmois}}" value="0" name="mois" class="w3-input" {{disabled}}><br>
+                        <input type="range" min="0" max="{{maxextmois}}" value="0" name="mois" class="slider" list="custom-list" {{disabled}}><br>
+                            <div class="sliderticks">
+                                <p>0</p>
+                                <p>1</p>
+                                <p>2</p>
+                                <p>3</p>
+                                <p>4</p>
+                                <p>5</p>
+                                <p>6</p>
+                                <p>7</p>
+                                <p>8</p>
+                                <p>9</p>
+                                <p>10</p>
+                                <p>11</p>
+                                <p>12</p>
+                            </div>
                         <input type="submit" value="Etendre mon serveur" class="w3-button w3-medium w3-text-white w3-border-white w3-round-large w3-border w3-hover-black" {{disabled}}>
                         <input type="hidden" name="suuid" value="{{serveur.uuidShort}}">
                     </form>

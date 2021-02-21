@@ -4,6 +4,9 @@
 require "../functions.php";
 session_start();
 $mois = sanitize_number($_POST['mois']);
+if($mois == 0){
+    show_error_light("Vous ne pouvez pas étendre votre serveur de 0 mois","?p=Mes-serveurs");
+}
 if( $mois >= 1 AND $mois <= 12){
 }else{
     show_error_light("La durée de location du serveur est invalide","?p=Creation-serveur");

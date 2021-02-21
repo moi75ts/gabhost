@@ -115,7 +115,7 @@ function show_error($erreur,$page){
     <link href=\"../style/w3.css\" rel=\"stylesheet\">
     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
     </head>
-    <body>
+    <body style=\"background-color:#000000\">
     <br><br><br><br>
         <div class=\"w3-panel w3-display-container w3-red w3-center w3-display-middle full-width firefox-display-center\">
     <p>ERREUR.</p>
@@ -134,7 +134,7 @@ function show_error_light($erreur,$page){
     <link href=\"../style/w3.css\" rel=\"stylesheet\">
     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
     </head>
-    <body>
+    <body style=\"background-color:#000000\">
     <br><br><br><br>
     <div class=\"w3-panel w3-display-container w3-red w3-center w3-display-middle full-width firefox-display-center\">
     <p>ERREUR.</p>
@@ -152,7 +152,7 @@ function show_error_nodest($erreur,$page){
     <link href=\"../style/w3.css\" rel=\"stylesheet\">
     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
     </head>
-    <body>
+    <body style=\"background-color:#000000\">
     <div class=\"w3-panel w3-display-container w3-red w3-center w3-display-middle full-width firefox-display-center\">
     <p>ERREUR.</p>
     <p>$erreur</p>
@@ -169,7 +169,7 @@ function show_success($message,$page){
     <link href=\"../style/w3.css\" rel=\"stylesheet\">
     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
     </head>
-    <body>
+    <body style=\"background-color:#000000\">
     <div class=\"w3-panel w3-display-container w3-green w3-center w3-display-middle full-width firefox-display-center\">
     <p>SUCCES.</p>
     <p>$message</p>
