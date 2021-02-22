@@ -167,10 +167,6 @@
                     <h5>Disparait le : {{serveur.expdate|date_modify("+5 day")|date("d/m/Y")}} à minuit <span style="background-color:{{bgleft}};border-radius:5px;padding:3px;">{{ deletedays }} jours</span></h5>
                     <form action="/scripts/extendloc.php" method="POST">
                         <input type="hidden" name="csrf" value="">
-                        <label for="mois"><h5>Etendre la location de mon serveur (mois)</h5></label>
-                        {% if (((gamme == "Essentiel") and params.user_data[0].token_e <= 0) or ((gamme == "Medium") and params.user_data[0].token_m <= 0) or ((gamme == "Gaming") and params.user_data[0].token_g <= 0)) %}
-                            {% set disabled = "disabled" %}
-                        {% endif %}
                         {% if gamme == "Essentiel" %}
                             {% if params.user_data[0].token_e > 12 %}
                                 {% set maxextmois = 12 %}
@@ -190,14 +186,24 @@
                                 {% set maxextmois = params.user_data[0].token_g %}
                             {% endif %}
                         {% endif %}
-                        <input type="range" min="0" max="{{maxextmois}}" value="0" name="mois" class="slider" list="custom-list" {{disabled}}><br>
+                            <label for="mois"><h5>Etendre la location de mon serveur (mois)</h5></label>
+                            <input type="range" min="0" max="{{maxextmois}}" value="0" name="mois" class="slider"><br>
                             <div class="sliderticks">
-                                <p>0</p>
-                                {% for i in 1..maxextmois %}
-                                    <p>{{i}}</p>
-                                {% endfor %}
-                            </div>
-                        <input type="submit" value="Etendre mon serveur" class="w3-button w3-medium w3-text-white w3-border-white w3-round-large w3-border w3-hover-black" {{disabled}}>
+                                {% if maxextmois != 0 %}
+                                    {% for i in 0..maxextmois %}
+                                        <p>{{i}}</p>
+                                    {% endfor %}
+                                </div>
+                                {% else %}
+                                </div>
+                                <h5 class="w3-center">Vous n'avez pas de jetons</h5>
+                                {% endif %}
+                        {% if (maxextmois != 0) %}
+                            <input type="submit" value="Etendre mon serveur" class="w3-button w3-medium w3-text-white w3-border-white w3-round-large w3-border w3-hover-black" {{disabled}}>
+                        {% else %}
+                            <h4>Achetez des jetons pour étendre la location de votre serveur</h4>
+                            <a href="?p=Accueil" class="w3-button w3-medium w3-text-white w3-border-white w3-round-large w3-border w3-hover-black"><img src="svg/bag.svg" class="svg-icon svg-blanc"> PLUS DE JETONS</a> 
+                        {% endif %}
                         <input type="hidden" name="suuid" value="{{serveur.uuidShort}}">
                     </form>
                     {# endDate and startDate are strings or DateTime objects #}
