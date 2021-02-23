@@ -2,12 +2,15 @@
 //error_reporting(E_ALL);
 //ini_set("display_errors", 1);
 require "/var/www/php.php";
+require "scripts/server.class.php";
+require "scripts/Node-controler.class.php";
+require "scripts/Node.class.php";
+
 function files(){
     $files = shell_exec("ls ./fichiers/");
     $files = preg_split('/\s+/', $files);
     return $files;
 }
-require "scripts/server.class.php";
 function detect_browser(){
     $arr_browsers = ["Opera", "Edg", "Chrome", "Safari", "Firefox", "MSIE", "Trident"];
     $agent = $_SERVER['HTTP_USER_AGENT'];

@@ -76,9 +76,21 @@ switch ($page){
         }
     case ("Creation-serveur"):
         if ($_SESSION['conn']===True){
+            $lesnodes = new NODECTRL();
             $user_data = get_user_data();
             $versions = list_minecraft_versions();
-            echo $twig->render('nvserv.twig', ['params' => ["page" => $page , "title" => $page ,"session" => $_SESSION , "versions" => $versions, "user_data" => $user_data] , 'cookies' => $_COOKIE]);
+            echo $twig->render('nvserv.twig', ['params' => ["page" => $page , "title" => $page ,"session" => $_SESSION , "versions" => $versions, "user_data" => $user_data,"nodes" => $lesnodes] , 'cookies' => $_COOKIE]);
+            break;
+        }
+        else{
+            header("Location: /?p=Connexion");
+            break;
+        }
+    case ("Mes-tokens"):
+        if ($_SESSION['conn']===True){
+            $lesnodes = new NODECTRL();
+            $user_data = get_user_data();
+            echo $twig->render('mestoken.twig', ['params' => ["page" => $page , "title" => $page ,"session" => $_SESSION , "user_data" => $user_data ,"nodes" => $lesnodes] , 'cookies' => $_COOKIE]);
             break;
         }
         else{

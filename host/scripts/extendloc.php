@@ -28,8 +28,9 @@ if ($serveur->secure === TRUE){
     }
     $srvid = $serveur->id;
     $conn = bdd_connect();
-    $stmt = $conn->prepare('UPDATE servers SET expdate = DATE_ADD(expdate, INTERVAL :mois MONTH) WHERE id = :id');
-    $stmt->execute(['mois' => $mois,'id' => $srvid]);
+    $stmt = $conn->prepare('UPDATE servers SET expdate = DATE_ADD(expdate, INTERVAL :jours DAY) WHERE id = :id');
+    $jours = $mois * 31;
+    $stmt->execute(['jours' => $jours,'id' => $srvid]);
     $stmt = $conn->prepare($query2);
     $stmt->execute(['id' => $_SESSION["id"],'mois' => $mois]);
     show_success("Vous venez d'étendre la location de votre serveur.","?p=Mes-serveurs");

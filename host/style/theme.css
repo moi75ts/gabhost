@@ -99,6 +99,12 @@ footer{
 .svg-blanc{
     filter: invert(100%) sepia(100%) saturate(100%) hue-rotate(86deg) brightness(118%) contrast(119%);
 }
+.svg-green{
+    filter: invert(65%) sepia(38%) saturate(3697%) hue-rotate(76deg) brightness(93%) contrast(85%);
+}
+.svg-rouge{
+    filter: invert(23%) sepia(82%) saturate(5539%) hue-rotate(354deg) brightness(94%) contrast(130%);
+}
 .disabled{
     filter: grayscale(100%);
 }

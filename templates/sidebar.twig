@@ -15,17 +15,17 @@
             <h3 style="text-align:center;"><span style="border-bottom: 2px solid grey; padding-bottom:3px;">{{params.session['pseudo']}}</span></h3><hr>
         {% else %}{% endif %}
         <a href="?p=Accueil"><button class="sidebar_btn w3-button w3-medium w3-text-white w3-hover-black full-width"><img src="svg/house.svg" class="svg-icon svg-blanc"> ACCUEIL</button></a>
-        <a href="https://panel.gabhost.tk"><button class="sidebar_btn w3-button w3-medium    w3-hover-black full-width"><img src="svg/server.svg" class="svg-icon svg-blanc"> PANEL</button></a>
+        <a href="https://panel.gabhost.tk"><button class="sidebar_btn w3-button w3-medium w3-hover-black full-width"><img src="svg/server.svg" class="svg-icon svg-blanc"> PANEL</button></a>
         {#btn deco les fct si co ici#}
         {% if params.session['conn'] == TRUE %}
-            <a href="https://panel.gabhost.tk/account"><button class="sidebar_btn w3-button w3-medium    w3-hover-black full-width"><img src="svg/file-person.svg" class="svg-icon svg-blanc"> MON COMPTE</button></a> 
-            <a href="?p=Mes-serveurs"><button class="sidebar_btn w3-button w3-medium    w3-hover-black full-width"><img src="svg/gear.svg" class="svg-icon svg-blanc"> MES SERVEURS</button></a> 
-            <a href="?p=Mes-tokens"><button class="sidebar_btn w3-button w3-medium  w3-hover-black full-width" disabled><img src="svg/bag.svg" class="svg-icon svg-blanc"> mes tokens</button></a> 
-            <a href="?p=Creation-serveur"><button class="sidebar_btn w3-button w3-medium    w3-hover-black full-width"><img src="svg/cloud-plus.svg" class="svg-icon svg-blanc"> Ajout serveur</button></a> 
+            <a href="https://panel.gabhost.tk/account"><button class="sidebar_btn w3-button w3-medium w3-hover-black full-width"><img src="svg/file-person.svg" class="svg-icon svg-blanc"> MON COMPTE</button></a> 
+            <a href="?p=Mes-serveurs"><button class="sidebar_btn w3-button w3-medium w3-hover-black full-width"><img src="svg/gear.svg" class="svg-icon svg-blanc"> MES SERVEURS</button></a> 
+            <a href="?p=Mes-tokens"><button class="sidebar_btn w3-button w3-medium w3-hover-black full-width"><img src="svg/bag.svg" class="svg-icon svg-blanc"> mes tokens</button></a> 
+            <a href="?p=Creation-serveur"><button class="sidebar_btn w3-button w3-medium w3-hover-black full-width"><img src="svg/cloud-plus.svg" class="svg-icon svg-blanc"> Ajout serveur</button></a> 
         {% else %}{% endif %}
         {#fin btn deco#}
          <a href="{% if params.session['conn'] == TRUE %}/scripts/deconnexion.php{% else %}?p=Connexion{% endif %}">{% if params.session['conn'] == TRUE %}<button class="sidebar_btn w3-button w3-medium    w3-hover-black full-width"><img src="svg/power.svg" class="svg-icon svg-blanc"> DECONEXION{% else %}<button class="sidebar_btn w3-button w3-medium    w3-hover-black full-width"><img src="svg/shield-lock.svg" class="svg-icon svg-blanc"> CONNEXION{% endif %}</button></a>
-         {% if params.session['conn'] == TRUE %}{% else %}<a href="?p=Inscription"><button class="sidebar_btn w3-button w3-medium    w3-hover-black full-width"><img src="svg/patch-plus.svg" class="svg-icon svg-blanc"> INSCRIPTION</button></a>{% endif %}
+         {% if params.session['conn'] == TRUE %}{% else %}<a href="?p=Inscription"><button class="sidebar_btn w3-button w3-medium w3-hover-black full-width"><img src="svg/patch-plus.svg" class="svg-icon svg-blanc"> INSCRIPTION</button></a>{% endif %}
          </p>
         </div>
         <img class="w3-display-middle" src="svg/loading.svg" id="loading" style="display: none;position: fixed;top: 50%; z-index: 7;">

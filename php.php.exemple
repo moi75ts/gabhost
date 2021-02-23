@@ -8,3 +8,6 @@ function getapi(){
 function getapi2(){
     return "pteroq api key 2"; //return string representing your 2nd api key (can be the same as the 1st one)
 }
+function getpanelurl(){
+    return "panel.smth.smth"; // return string representing your pterodactyl panel url
+}

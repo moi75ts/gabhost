@@ -58,7 +58,7 @@ $token = $stmt->fetchColumn();
 if ((($token - $mois) < 0) or ($token === NULL )){
     show_error_light("Vous n'avez pas assez de token","?p=Accueil");
 }
-
+$jours = $mois * 31;
 
 switch ($egg){
     case("27"): //minecraft forge
@@ -315,8 +315,8 @@ if (isset($status_creation["attributes"]["created_at"])){
     show_success("Le serveur est bien créé (tkt c'est rien c'est le debug)","?p=Mes-serveurs");
     $stmt = $conn->prepare($query2);
     $stmt->execute(['id' => $id,'mois' => $mois]); 
-    $stmt = $conn->prepare('UPDATE servers SET expdate = DATE_ADD(created_at, INTERVAL :mois MONTH) WHERE id = :id');
-    $stmt->execute(['mois' => $mois,'id' => $srvid]);
+    $stmt = $conn->prepare('UPDATE servers SET expdate = DATE_ADD(created_at, INTERVAL :jours DAY) WHERE id = :id');
+    $stmt->execute(['jours' => $jours,'id' => $srvid]);
 }else{
     $erreur = $status_creation["errors"][0]["detail"];
     switch ($erreur) {

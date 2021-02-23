@@ -5,6 +5,8 @@
 <div class="texte-blanc panel-black">
   <div class="w3-container w3-center">
     <h2>vous avez {{params.user_data[0].token_e}} jeton(s) Essentiel, {{params.user_data[0].token_m}} jeton(s) Medium et {{params.user_data[0].token_g}} jeton(s) GAMING</h2>
+    {% include 'stock.twig' with {'params':params} %}
+    <br>
     <input type="button" id="b1" value=""></a>
     <input type="button" id="b2" value=""></a>
     <input type="button" id="b3" value=""></a>

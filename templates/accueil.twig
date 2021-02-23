@@ -7,7 +7,9 @@
     <div class="w3-panel panel-black" style="border-top:solid 3px;">
       <p>liste des machines Gabhost</p>
       {% for node in params.nodes["data"] %}
-        <hr>{{node["attributes"]["name"]}} | {{node["attributes"]["description"]}}
+        {% if node["attributes"]["maintenance_mode"] == FALSE %}
+          <hr>{{node["attributes"]["name"]}} | {{node["attributes"]["description"]}}
+        {% endif %}
       {% endfor %}
       </p>
     </div>
@@ -19,6 +21,7 @@
     <br>
     <div class="w3-mobile">
       <div class="panel-black" style="padding:1.5vh;margin:0.5vh;border-top:solid 3px;">
+      <h2>Nos offres</h2>
         {% include 'nos-offres.twig' with {'params':params} %}
       </div>
     </div>
