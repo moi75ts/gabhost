@@ -1,0 +1,15 @@
+{% include 'sidebar.twig' with {'params':params} %}
+<div class="w3-container w3-center">
+    <div class="w3-panel panel-black" style="padding:1.5vh;margin:0.5vh;border-top:solid 3px;">
+        <h4>vous avez {{params.user_data[0].token_e}} jeton(s) Essentiel, {{params.user_data[0].token_m}} jeton(s) Medium et {{params.user_data[0].token_g}} jeton(s) GAMING</h4>
+        {% include 'stock.twig' with {'params':params} %}
+        {% include 'nos-offres.twig' with {'params':params} %}
+        <hr>
+        <h2>Vous êtes connectez avec le compte {{params.session['pseudo']}}</h2><br>
+        <input type="submit" value="Achetez un jeton essentiel" class="w3-button w3-medium w3-text-white w3-border-white w3-round-large w3-border w3-hover-black w3-mobile" style="margin-bottom:1vh;margin-top:1vh"><input type="hidden" name="suuid" value="{{serveur.uuidShort}}"><input type="hidden" name="csrf" value="{{params.csrf}}">
+        <input type="submit" value="Achetez un jeton medium" class="w3-button w3-medium w3-text-white w3-border-white w3-round-large w3-border w3-hover-black w3-mobile" style="margin-bottom:1vh;margin-top:1vh"><input type="hidden" name="suuid" value="{{serveur.uuidShort}}"><input type="hidden" name="csrf" value="{{params.csrf}}">
+        <input type="submit" value="Achetez un jeton gaming" class="w3-button w3-medium w3-text-white w3-border-white w3-round-large w3-border w3-hover-black w3-mobile" style="margin-bottom:1vh;margin-top:1vh"><input type="hidden" name="suuid" value="{{serveur.uuidShort}}"><input type="hidden" name="csrf" value="{{params.csrf}}">
+        <hr>
+        <dfn>1 jeton  = 1 serveur pendant 31 jours, si le serveur existe déjà 1 jeton étend le serveur de 31 jours suplémentaires <br>les jetons une fois utilisé ne sont pas remboursable ni échangable<br>Pas de transfert de jetons entre des comptes<br></dfn>
+    </div>
+</div>

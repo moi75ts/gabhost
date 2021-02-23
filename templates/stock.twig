@@ -1,0 +1,32 @@
+<div class="w3-rest">
+            <div class="w3-third w3-hover-shadow w3-large" style="border-top:solid 3px; border-color:#DA0357;">
+            Stock Essentiel<br>
+            {% if (params.nodes.totalfree_e > 0 ) %}
+                Il reste {{params.nodes.totalfree_e}} serveurs disponible<br>
+                <img src="/svg/check.svg" class="svg-icon-big svg-green"> 
+            {% else %}
+                Il n'y a plus de serveurs dispo<br>
+                <img src="/svg/x-circle.svg" class="svg-icon-big svg-rouge"> 
+            {% endif %}
+            </div>
+            <div class="w3-third w3-hover-shadow w3-large" style="border-top:solid 3px; border-color:#4C7BF4;">
+            Stock Medium<br>
+            {% if (params.nodes.totalfree_m > 0 ) %}
+                Il reste {{params.nodes.totalfree_m}} serveurs disponible<br>
+                <img src="/svg/check.svg" class="svg-icon-big svg-green"> 
+            {% else %}
+                Il n'y a plus de serveurs dispo<br>
+                <img src="/svg/x-circle.svg" class="svg-icon-big svg-rouge"> 
+            {% endif %}
+            </div>
+            <div class="w3-third w3-hover-shadow w3-large" style="border-top:solid 3px; border-color:#29BB2B;">
+            Stock Gaming<br>
+            {% if (params.nodes.totalfree_g > 0 ) %}
+                Il reste {{params.nodes.totalfree_g}} serveurs disponible<br>
+                <img src="/svg/check.svg" class="svg-icon-big svg-green"> 
+            {% else %}
+                Il n'y a plus de serveurs dispo<br>
+                <img src="/svg/x-circle.svg" class="svg-icon-big svg-rouge"> 
+            {% endif %}
+            </div>
+        </div>
